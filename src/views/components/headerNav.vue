@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between pt-8">
+  <nav class="flex justify-between pt-8 container">
     <img src="../../assets/logo.svg" class="h-8" />
     <ul>
       <li>
@@ -26,3 +26,13 @@ const downloadResume = () => {
   document.body.removeChild(link)
 }
 </script>
+
+<style lang="scss" scoped>
+@media all and (max-width: 992px) {
+  nav li a,
+  nav button {
+    font-size: 18px;
+    margin-left: 24px;
+  }
+}
+</style>
