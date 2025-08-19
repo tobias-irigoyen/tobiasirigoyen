@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center !mt-[120px] container">
+  <section class="flex justify-center !mt-[120px] container">
     <div class="mb-16 w-1/2 hero-blocks">
       <h2 class="text-5xl mb-8">I'm UI/UX Designer and Front-End Developer</h2>
       <p class="lead">
@@ -25,7 +25,7 @@
     <div class="w-1/2 flex justify-end hero-blocks hero-image-container">
       <img src="../../assets/hero-image.svg" alt="hero image" class="w-130 hero-image" />
     </div>
-  </div>
+  </section>
   <a href="#my-work" class="down-arrow">
     <img src="../../assets/down-arrow.svg" alt="down arrow" height="20" />
   </a>
@@ -49,6 +49,12 @@ const downloadResume = () => {
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
+.container {
+  min-height: calc(100vh - 280px);
+}
+.hero-image-container {
+  margin-bottom: auto;
+}
 @media all and (max-width: 992px) {
   h2 {
     text-align: center;
@@ -71,8 +77,6 @@ const downloadResume = () => {
       width: 18.75rem; // 300px;
     }
   }
-}
-@media all and (max-width: 576px) {
   .hero-image {
     display: none;
   }
