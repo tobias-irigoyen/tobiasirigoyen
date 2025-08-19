@@ -10,6 +10,11 @@ body {
   background-color: #000;
 }
 
+.section-title {
+  font-weight: 600;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
 @media all and (max-width: 576px) {
   .container {
     max-width: calc(100% - 32px);

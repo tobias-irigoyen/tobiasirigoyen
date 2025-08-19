@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "API Covid 19",
+    "link": "https://tobias-irigoyen.github.io/landing-api-covid/",
+    "skills": ["UI/UX Design", "HTML5", "CSS3"]
+  },
+  {
+    "id": 2,
+    "title": "FIT - Flujo Intercooperativo de Trabajo",
+    "link": "https://facttic.org.ar/fit/",
+    "skills": ["UI/UX Design", "Vue.js", "HTML5", "CSS3"]
+  },
+  {
+    "id": 3,
+    "title": "Proyecto Aurora",
+    "link": "https://www.phaurora.com/",
+    "skills": ["UI/UX Design", "UI/UX Improvements", "UI/UX Design System"]
+  },
+  {
+    "id": 4,
+    "title": "Nayra",
+    "link": "https://nayra.coop/",
+    "skills": ["UI/UX Design", "Vue.js", "HTML5", "CSS3"]
+  },
+  {
+    "id": 5,
+    "title": "Pokedex",
+    "link": "https://tobias-irigoyen.github.io/pokedex/",
+    "skills": ["UI/UX Design", "Vue.js", "HTML5", "CSS3"]
+  },
+  {
+    "id": 6,
+    "title": "Naranja X - Soft refactor",
+    "link": "https://bit.ly/naranjax_wallet",
+    "skills": ["UI/UX Design refactor", "Figma Prototype"]
+  },
+  {
+    "id": 7,
+    "title": "ICBC Home Banking - Soft refactor",
+    "link": "https://bit.ly/icbc_hb",
+    "skills": ["UI/UX Design refactor", "Figma Prototype"]
+  }
+]
