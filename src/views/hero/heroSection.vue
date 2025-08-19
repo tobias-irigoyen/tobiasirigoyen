@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="w-1/2 flex justify-end hero-blocks hero-image-container">
-      <img src="../../assets/_hero-image.svg" alt="hero image" class="w-130 hero-image" />
+      <img src="../../assets/hero-image.svg" alt="hero image" class="w-130 hero-image" />
     </div>
   </div>
   <a href="#my-work" class="down-arrow">
@@ -68,7 +68,7 @@ const downloadResume = () => {
   .hero-image-container {
     justify-content: center;
     .hero-image {
-      width: 300px;
+      width: 18.75rem; // 300px;
     }
   }
 }
@@ -79,7 +79,7 @@ const downloadResume = () => {
 }
 @media all and (max-width: 360px) {
   h2 {
-    font-size: 32px;
+    font-size: 2rem; //32px;
     text-align: center;
   }
   .btns-container {
