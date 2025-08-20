@@ -42,6 +42,9 @@ const works = ref(work)
 </script>
 
 <style lang="scss" scoped>
+#my-work {
+  padding-top: 100px;
+}
 .work {
   border-radius: 1rem;
   width: 100%;
