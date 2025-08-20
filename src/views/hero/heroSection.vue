@@ -2,12 +2,7 @@
   <section class="flex justify-center !mt-[120px] container">
     <div class="mb-16 w-1/2 hero-blocks">
       <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
-      <p class="lead">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-      </p>
+      <p class="lead">{{ t('lead') }}</p>
       <div class="flex flex-start mt-8 btns-container">
         <router-link
           :to="'#my-work'"
@@ -57,6 +52,10 @@ const downloadResume = () => {
 }
 .hero-image-container {
   margin-bottom: auto;
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 @media all and (max-width: 992px) {
   h2 {
