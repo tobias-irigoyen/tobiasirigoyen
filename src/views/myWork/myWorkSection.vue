@@ -129,4 +129,9 @@ const works = ref(work)
     }
   }
 }
+@media all and (max-width: 576px) {
+  #my-work {
+    padding-top: 100px;
+  }
+}
 </style>

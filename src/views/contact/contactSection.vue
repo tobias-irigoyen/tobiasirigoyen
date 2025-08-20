@@ -126,4 +126,9 @@ const { t } = useI18n()
     }
   }
 }
+@media all and (max-width: 576px) {
+  #contact {
+    padding-top: 100px;
+  }
+}
 </style>

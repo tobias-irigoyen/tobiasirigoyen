@@ -1,5 +1,5 @@
 <template>
-  <section class="flex justify-center !mt-[120px] container" id="hero-section">
+  <section class="flex justify-center mt-[120px] container" id="hero-section">
     <div class="mb-16 w-1/2 hero-blocks">
       <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
       <p class="lead">{{ t('lead') }}</p>
@@ -99,6 +99,11 @@ const downloadResume = () => {
       width: 100%;
       margin-left: 0;
     }
+  }
+}
+@media all and (max-width: 576px) {
+  .container {
+    margin-top: 40px !important;
   }
 }
 </style>
