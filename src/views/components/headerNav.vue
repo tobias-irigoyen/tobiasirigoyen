@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between items-center pt-8 container">
+  <nav class="flex justify-between items-center pt-8 pb-8 container">
     <img src="../../assets/logo.svg" class="h-8" />
     <button
       @click="toggleMobileNav"
@@ -87,6 +87,12 @@ const downloadResume = () => {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 20;
+}
 .mobile-toggle {
   display: none;
   flex-direction: column;
