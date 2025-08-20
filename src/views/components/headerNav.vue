@@ -1,10 +1,31 @@
 <template>
-  <nav class="flex justify-between pt-8 container">
+  <nav class="flex justify-between items-center pt-8 container">
     <img src="../../assets/logo.svg" class="h-8" />
-    <ul>
+
+    <!-- Botón hamburguesa (solo visible en móvil) -->
+    <button
+      @click="toggleMobileNav"
+      class="mobile-toggle"
+      :class="{ active: isMobileNavOpen }"
+      aria-label="Toggle navigation"
+    >
+      <span :class="{ active: isMobileNavOpen }"></span>
+      <span :class="{ active: isMobileNavOpen }"></span>
+      <span :class="{ active: isMobileNavOpen }"></span>
+    </button>
+
+    <ul class="nav-menu" :class="{ active: isMobileNavOpen }">
       <li>
-        <router-link class="text-2xl ml-16" :to="'/#my-work'">My Work</router-link>
-        <router-link class="text-2xl ml-16" :to="'/#contact'">Contact</router-link>
+        <router-link class="text-2xl ml-16" :to="'/#my-work'" @click="closeMobileNav">
+          My Work
+        </router-link>
+      </li>
+      <li>
+        <router-link class="text-2xl ml-16" :to="'/#contact'" @click="closeMobileNav">
+          Contact
+        </router-link>
+      </li>
+      <li>
         <button
           @click="downloadResume"
           class="border border-white py-2 px-3 ml-16 bg-transparent !text-white text-2xl hover:bg-white hover:!text-black hover:cursor-pointer"
@@ -17,6 +38,43 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const isMobileNavOpen = ref(false)
+
+const toggleMobileNav = () => {
+  isMobileNavOpen.value = !isMobileNavOpen.value
+}
+
+const closeMobileNav = () => {
+  isMobileNavOpen.value = false
+}
+
+// Cerrar nav al hacer clic fuera (opcional)
+const handleClickOutside = (event: Event) => {
+  const nav = document.querySelector('nav')
+  if (nav && !nav.contains(event.target as Node)) {
+    isMobileNavOpen.value = false
+  }
+}
+
+// Cerrar nav al cambiar tamaño de pantalla
+const handleResize = () => {
+  if (window.innerWidth > 576) {
+    isMobileNavOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+  window.removeEventListener('resize', handleResize)
+})
+
 const downloadResume = () => {
   const link = document.createElement('a')
   link.href = '/Tobías Irigoyen - Resume.pdf'
@@ -24,15 +82,131 @@ const downloadResume = () => {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+  closeMobileNav()
 }
 </script>
 
 <style lang="scss" scoped>
+// Botón hamburguesa - solo visible en móvil
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 30px;
+  height: 24px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+
+  &.active {
+    position: fixed;
+    top: 32px;
+    right: 16px;
+  }
+
+  span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    transform-origin: center;
+
+    &.active:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    &.active:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.active:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media all and (max-width: 576px) {
+  nav {
+    flex-direction: row; // Mantener logo y botón en la misma línea
+    align-items: center;
+    position: relative;
+
+    img {
+      margin-bottom: 0;
+    }
+  }
+
+  // Mostrar botón hamburguesa
+  .mobile-toggle {
+    display: flex;
+  }
+
+  // Menu oculto por defecto en móvil
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease;
+    z-index: 1000;
+
+    &.active {
+      left: 0;
+    }
+
+    li {
+      margin: 0;
+      margin-bottom: 2rem;
+
+      a {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      button {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
 @media all and (max-width: 992px) {
   nav li a,
   nav button {
     font-size: 18px;
     margin-left: 24px;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 768px) {
+  nav img {
+    height: 20px;
+  }
+
+  // Ocultar botón hamburguesa en tablets y desktop
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+@media all and (min-width: 577px) {
+  // Ocultar botón hamburguesa en tablets y desktop
+  .mobile-toggle {
+    display: none;
   }
 }
 </style>
