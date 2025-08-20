@@ -1,13 +1,13 @@
 <template>
-  <section class="flex justify-center !mt-[120px] container">
+  <section class="flex justify-center !mt-[120px] container" id="hero-section">
     <div class="mb-16 w-1/2 hero-blocks">
       <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
       <p class="lead">{{ t('lead') }}</p>
       <div class="flex flex-start mt-8 btns-container">
-        <router-link
-          :to="'#my-work'"
+        <a
+          href="#my-work"
           class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer w-[140px] text-center"
-          >{{ t('my-work') }}</router-link
+          >{{ t('my-work') }}</a
         >
         <button
           @click="downloadResume"
@@ -21,9 +21,9 @@
       <img src="../../assets/hero-image.svg" alt="hero image" class="w-130 hero-image" />
     </div>
   </section>
-  <!--router-link class="down-arrow" :to="'/#my-work'">
+  <!--a class="down-arrow" href="my-work">
     <img src="../../assets/down-arrow.svg" alt="down arrow" height="20" />
-  </router-link-->
+  </a-->
 </template>
 
 <script setup lang="ts">
