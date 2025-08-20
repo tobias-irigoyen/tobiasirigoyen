@@ -26,9 +26,9 @@
       <img src="../../assets/hero-image.svg" alt="hero image" class="w-130 hero-image" />
     </div>
   </section>
-  <a href="#my-work" class="down-arrow">
+  <router-link class="down-arrow" :to="'/#my-work'">
     <img src="../../assets/down-arrow.svg" alt="down arrow" height="20" />
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">

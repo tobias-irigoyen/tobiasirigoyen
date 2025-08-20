@@ -1,8 +1,6 @@
 <template>
   <nav class="flex justify-between items-center pt-8 container">
     <img src="../../assets/logo.svg" class="h-8" />
-
-    <!-- Botón hamburguesa (solo visible en móvil) -->
     <button
       @click="toggleMobileNav"
       class="mobile-toggle"
@@ -38,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 const isMobileNavOpen = ref(false)
 
@@ -50,15 +48,14 @@ const closeMobileNav = () => {
   isMobileNavOpen.value = false
 }
 
-// Cerrar nav al hacer clic fuera (opcional)
-const handleClickOutside = (event: Event) => {
-  const nav = document.querySelector('nav')
-  if (nav && !nav.contains(event.target as Node)) {
-    isMobileNavOpen.value = false
+watch(isMobileNavOpen, (isOpen) => {
+  if (isOpen) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
   }
-}
+})
 
-// Cerrar nav al cambiar tamaño de pantalla
 const handleResize = () => {
   if (window.innerWidth > 576) {
     isMobileNavOpen.value = false
@@ -66,13 +63,12 @@ const handleResize = () => {
 }
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
   window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
   window.removeEventListener('resize', handleResize)
+  document.body.style.overflow = ''
 })
 
 const downloadResume = () => {
@@ -87,7 +83,6 @@ const downloadResume = () => {
 </script>
 
 <style lang="scss" scoped>
-// Botón hamburguesa - solo visible en móvil
 .mobile-toggle {
   display: none;
   flex-direction: column;
@@ -135,7 +130,7 @@ const downloadResume = () => {
 
 @media all and (max-width: 576px) {
   nav {
-    flex-direction: row; // Mantener logo y botón en la misma línea
+    flex-direction: row;
     align-items: center;
     position: relative;
 
@@ -144,12 +139,10 @@ const downloadResume = () => {
     }
   }
 
-  // Mostrar botón hamburguesa
   .mobile-toggle {
     display: flex;
   }
 
-  // Menu oculto por defecto en móvil
   .nav-menu {
     position: fixed;
     top: 0;
@@ -197,14 +190,12 @@ const downloadResume = () => {
     height: 20px;
   }
 
-  // Ocultar botón hamburguesa en tablets y desktop
   .mobile-toggle {
     display: none;
   }
 }
 
 @media all and (min-width: 577px) {
-  // Ocultar botón hamburguesa en tablets y desktop
   .mobile-toggle {
     display: none;
   }
