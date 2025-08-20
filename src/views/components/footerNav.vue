@@ -4,17 +4,17 @@
       <span>© tobias irigoyen 2025</span>
       <ul class="flex items-center justify-center">
         <li>
-          <router-link class="text-2xl ml-16" :to="'/#my-work'">My Work</router-link>
+          <router-link class="text-2xl ml-16" :to="'/#my-work'">{{ t('my-work') }}</router-link>
         </li>
         <li>
-          <router-link class="text-2xl ml-16" :to="'/#contact'">Contact</router-link>
+          <router-link class="text-2xl ml-16" :to="'/#contact'">{{ t('contact') }}</router-link>
         </li>
         <li>
           <button
             @click="downloadResume"
-            class="border border-white py-2 px-3 ml-16 bg-transparent !text-white text-2xl hover:bg-white hover:!text-black hover:cursor-pointer"
+            class="border border-white py-2 px-3 ml-16 bg-transparent !text-white text-2xl hover:bg-white hover:!text-black hover:cursor-pointer w-[165px]"
           >
-            My Resume
+            {{ t('my-resume') }}
           </button>
         </li>
       </ul>
@@ -23,6 +23,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const downloadResume = () => {
   const link = document.createElement('a')
   link.href = '/Tobías Irigoyen - Resume.pdf'

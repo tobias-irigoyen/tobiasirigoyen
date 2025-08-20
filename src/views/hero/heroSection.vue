@@ -1,7 +1,7 @@
 <template>
   <section class="flex justify-center !mt-[120px] container">
     <div class="mb-16 w-1/2 hero-blocks">
-      <h2 class="text-5xl mb-8">I'm UI/UX Designer and Front-End Developer</h2>
+      <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
       <p class="lead">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
         been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -9,16 +9,16 @@
         centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
       </p>
       <div class="flex flex-start mt-8 btns-container">
-        <a
-          href="#my-work"
-          class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer"
-          >View My Work</a
+        <router-link
+          :to="'#my-work'"
+          class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer w-[140px] text-center"
+          >{{ t('my-work') }}</router-link
         >
         <button
           @click="downloadResume"
-          class="border border-white py-2 px-3 ml-8 bg-transparent !text-white text-[18px] hover:bg-white hover:!text-black hover:cursor-pointer"
+          class="border border-white py-2 px-3 ml-8 bg-transparent !text-white text-[18px] hover:bg-white hover:!text-black hover:cursor-pointer w-[140px] text-center"
         >
-          My Resume
+          {{ t('my-resume') }}
         </button>
       </div>
     </div>
@@ -26,12 +26,15 @@
       <img src="../../assets/hero-image.svg" alt="hero image" class="w-130 hero-image" />
     </div>
   </section>
-  <router-link class="down-arrow" :to="'/#my-work'">
+  <!--router-link class="down-arrow" :to="'/#my-work'">
     <img src="../../assets/down-arrow.svg" alt="down arrow" height="20" />
-  </router-link>
+  </router-link-->
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const downloadResume = () => {
   const link = document.createElement('a')
   link.href = '/Tobías Irigoyen - Resume.pdf'
@@ -43,14 +46,14 @@ const downloadResume = () => {
 </script>
 
 <style lang="scss" scoped>
-.down-arrow {
+/*.down-arrow {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-right: 1rem;
   margin-bottom: 1rem;
-}
+}*/
 .container {
-  min-height: calc(100vh - 280px);
+  min-height: calc(100vh - 180px);
 }
 .hero-image-container {
   margin-bottom: auto;

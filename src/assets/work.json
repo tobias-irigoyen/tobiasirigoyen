@@ -1,44 +1,44 @@
 [
   {
     "id": 1,
-    "title": "API Covid 19",
+    "title": "works.api-covid.title",
     "link": "https://tobias-irigoyen.github.io/landing-api-covid/",
-    "skills": ["UI/UX Design", "HTML5", "CSS3"]
+    "skills": ["skills.uiux", "skills.html5", "skills.css3"]
   },
   {
     "id": 2,
-    "title": "FIT - Flujo Intercooperativo de Trabajo",
+    "title": "works.fit.title",
     "link": "https://facttic.org.ar/fit/",
-    "skills": ["UI/UX Design", "Vue.js", "HTML5", "CSS3"]
+    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"]
   },
   {
     "id": 3,
-    "title": "Proyecto Aurora",
+    "title": "works.aurora.title",
     "link": "https://www.phaurora.com/",
-    "skills": ["UI/UX Design", "UI/UX Improvements", "UI/UX Design System"]
+    "skills": ["skills.uiux", "skills.uiux-improvements", "skills.uiux-system"]
   },
   {
     "id": 4,
-    "title": "Nayra",
+    "title": "works.nayra.title",
     "link": "https://nayra.coop/",
-    "skills": ["UI/UX Design", "Vue.js", "HTML5", "CSS3"]
+    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"]
   },
   {
     "id": 5,
-    "title": "Pokedex",
+    "title": "works.pokedex.title",
     "link": "https://tobias-irigoyen.github.io/pokedex/",
-    "skills": ["UI/UX Design", "Vue.js", "HTML5", "CSS3"]
+    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"]
   },
   {
     "id": 6,
-    "title": "Naranja X - Soft refactor",
+    "title": "works.naranjax.title",
     "link": "https://bit.ly/naranjax_wallet",
-    "skills": ["UI/UX Design refactor", "Figma Prototype"]
+    "skills": ["skills.uiux-refactor", "skills.figma"]
   },
   {
     "id": 7,
-    "title": "ICBC Home Banking - Soft refactor",
+    "title": "works.icbc.title",
     "link": "https://bit.ly/icbc_hb",
-    "skills": ["UI/UX Design refactor", "Figma Prototype"]
+    "skills": ["skills.uiux-refactor", "skills.figma"]
   }
 ]

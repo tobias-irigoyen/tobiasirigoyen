@@ -1,0 +1,25 @@
+{
+  "intro": "Soy Diseñador UI/UX y Desarrollador Front-End",
+  "my-work": "Proyectos",
+  "contact": "Contacto",
+  "my-resume": "Mi CV",
+  "works": {
+    "api-covid": { "title": "API Covid 19" },
+    "fit": { "title": "FIT - Flujo Intercooperativo de Trabajo" },
+    "aurora": { "title": "Proyecto Aurora" },
+    "nayra": { "title": "Nayra" },
+    "pokedex": { "title": "Pokedex" },
+    "naranjax": { "title": "Naranja X - Soft refactor" },
+    "icbc": { "title": "ICBC Home Banking - Soft refactor" }
+  },
+  "skills": {
+    "uiux": "Diseño UI/UX",
+    "uiux-improvements": "Mejoras UI/UX",
+    "uiux-system": "Sistema de diseño UI/UX",
+    "uiux-refactor": "Refactor de UI/UX",
+    "html5": "HTML5",
+    "css3": "CSS3",
+    "vue": "Vue.js",
+    "figma": "Prototipo en Figma"
+  }
+}

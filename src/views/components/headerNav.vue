@@ -15,28 +15,32 @@
     <ul class="nav-menu" :class="{ active: isMobileNavOpen }">
       <li>
         <router-link class="text-2xl ml-16" :to="'/#my-work'" @click="closeMobileNav">
-          My Work
+          {{ t('my-work') }}
         </router-link>
       </li>
       <li>
         <router-link class="text-2xl ml-16" :to="'/#contact'" @click="closeMobileNav">
-          Contact
+          {{ t('contact') }}
         </router-link>
       </li>
       <li>
         <button
           @click="downloadResume"
-          class="border border-white py-2 px-3 ml-16 bg-transparent !text-white text-2xl hover:bg-white hover:!text-black hover:cursor-pointer"
+          class="border border-white py-2 px-3 ml-16 bg-transparent !text-white text-2xl hover:bg-white hover:!text-black hover:cursor-pointer w-[165px]"
         >
-          My Resume
+          {{ t('my-resume') }}
         </button>
       </li>
+      <li class="ml-16"><language-selector></language-selector></li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
+import languageSelector from './languageSelector.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const isMobileNavOpen = ref(false)
 

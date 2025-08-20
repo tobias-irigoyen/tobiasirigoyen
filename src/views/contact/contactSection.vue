@@ -3,12 +3,12 @@
     class="flex flex-col items-center justify-start !mt-[40px] !mb-[40px] pt-[80px] pb-[80px] container"
     id="contact"
   >
-    <h2 class="section-title mb-[60px]">Contact</h2>
+    <h2 class="section-title mb-[60px]">{{ t('contact') }}</h2>
     <div>
       <ul class="flex flex-row contact-links">
         <li class="me-8">
           <a
-            class="text-2xl hover:underline w-[101px]"
+            class="text-2xl hover:underline w-[101px] h-[35px]"
             target="_blank"
             href=":mailto=tobias.irigoyen@gmail.com"
             >Email
@@ -32,7 +32,7 @@
         </li>
         <li class="me-8">
           <a
-            class="text-2xl hover:underline w-[116px]"
+            class="text-2xl hover:underline w-[116px] h-[35px]"
             target="_blank"
             href="github.com/tobias-irigoyen"
             >Github
@@ -56,7 +56,7 @@
         </li>
         <li>
           <a
-            class="text-2xl hover:underline w-[132px]"
+            class="text-2xl hover:underline w-[132px] h-[35px]"
             target="_blank"
             href="linkedin.com/in/tobiasirigoyen"
             >Linkedin
@@ -83,7 +83,10 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 
 <style lang="scss" scoped>
 .contact-links {
