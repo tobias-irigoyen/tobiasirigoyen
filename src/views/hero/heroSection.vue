@@ -1,5 +1,5 @@
 <template>
-  <section class="flex justify-center mt-[120px] container" id="hero-section">
+  <section class="flex justify-center container" id="hero-section">
     <div class="mb-16 w-1/2 hero-blocks">
       <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
       <p class="lead">{{ t('lead') }}</p>
@@ -49,6 +49,7 @@ const downloadResume = () => {
 }*/
 .container {
   min-height: calc(100vh - 180px);
+  margin-top: 120px;
 }
 .hero-image-container {
   margin-bottom: auto;
