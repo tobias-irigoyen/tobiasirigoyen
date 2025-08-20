@@ -46,7 +46,14 @@ onUnmounted(() => {
 function scrollToSection(id: string) {
   const el = document.getElementById(id)
   if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
+    const offsetTop = el.getBoundingClientRect().top + window.pageYOffset
+    const offset = id === 'hero-section' ? 240 : 20
+
+    window.scrollTo({
+      top: offsetTop - offset,
+      behavior: 'smooth',
+    })
+
     history.pushState(null, '', `#${id}`)
   }
 }
