@@ -133,5 +133,8 @@ const { t } = useI18n()
   h2 {
     font-size: 2.5rem;
   }
+  .container {
+    padding-top: 100px;
+  }
 }
 </style>

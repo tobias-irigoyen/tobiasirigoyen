@@ -1,6 +1,8 @@
 <template>
   <nav class="flex justify-between items-center pt-8 pb-8 container">
-    <img src="../../assets/logo.svg" class="h-8 logo" />
+    <a :href="'#' + t('anchors.home-section')">
+      <img src="../../assets/logo.svg" class="h-8 logo" />
+    </a>
     <button
       @click="toggleMobileNav"
       class="mobile-toggle"
@@ -14,12 +16,20 @@
 
     <ul class="nav-menu" :class="{ active: isMobileNavOpen }">
       <li>
-        <a class="text-2xl ml-16" :href="'#' + t('anchors.work')" @click="closeMobileNav">
+        <a
+          class="text-2xl ml-16 hover:underline"
+          :href="'#' + t('anchors.work')"
+          @click="closeMobileNav"
+        >
           {{ t('my-work') }}
         </a>
       </li>
       <li>
-        <a class="text-2xl ml-16" :href="'#' + t('anchors.contact')" @click="closeMobileNav">
+        <a
+          class="text-2xl ml-16 hover:underline"
+          :href="'#' + t('anchors.contact')"
+          @click="closeMobileNav"
+        >
           {{ t('contact') }}
         </a>
       </li>

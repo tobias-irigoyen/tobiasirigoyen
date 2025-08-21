@@ -106,6 +106,7 @@ const downloadResume = () => {
 @media all and (max-width: 576px) {
   .container {
     margin-top: 40px !important;
+    padding-top: 100px;
   }
 }
 @media all and (max-width: 360px) {

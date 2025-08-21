@@ -4,10 +4,14 @@
       <span>© tobias irigoyen 2025</span>
       <ul class="flex items-center justify-center">
         <li>
-          <a class="text-2xl ml-16" :href="'#' + t('anchors.work')">{{ t('my-work') }}</a>
+          <a class="text-2xl ml-16 hover:underline" :href="'#' + t('anchors.work')">{{
+            t('my-work')
+          }}</a>
         </li>
         <li>
-          <a class="text-2xl ml-16" :href="'#' + t('anchors.contact')">{{ t('contact') }}</a>
+          <a class="text-2xl ml-16 hover:underline" :href="'#' + t('anchors.contact')">{{
+            t('contact')
+          }}</a>
         </li>
         <li>
           <button
