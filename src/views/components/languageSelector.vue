@@ -2,7 +2,7 @@
   <div class="flex items-center gap-2 language-selector">
     <span
       :class="['text-xl', 'hover:cursor-pointer', locale === 'es' ? 'border-b-1' : '']"
-      @click="locale = 'es'"
+      @click="changeLanguage"
       >ES</span
     >
     <button
@@ -20,7 +20,7 @@
     </button>
     <span
       :class="['text-xl', 'hover:cursor-pointer', locale === 'en' ? 'border-b-1' : '']"
-      @click="locale = 'en'"
+      @click="changeLanguage"
       >EN</span
     >
   </div>
@@ -34,44 +34,11 @@ const router = useRouter()
 const route = useRoute()
 const { locale } = useI18n()
 
-const sectionAnchors = {
-  en: {
-    'home': 'inicio',
-    'my-work': 'proyectos',
-    'contact': 'contacto',
-  },
-  es: {
-    'inicio': 'home',
-    'proyectos': 'my-work',
-    'contacto': 'contact',
-  },
-}
-
-function translateAnchor(anchor: string, fromLang: string, toLang: string): string {
-  if (!anchor.startsWith('#')) return anchor
-
-  const anchorName = anchor.slice(1) // Remover el #
-  const translationMap = fromLang === 'en' ? sectionAnchors.en : sectionAnchors.es
-
-  const translatedAnchor = translationMap[anchorName as keyof typeof translationMap] || anchorName
-
-  return `#${translatedAnchor}`
-}
-
 function changeLanguage() {
   const newLocale = locale.value === 'en' ? 'es' : 'en'
-  const currentLocale = locale.value
-
-  let translatedHash = route.hash
-  if (route.hash) {
-    translatedHash = translateAnchor(route.hash, currentLocale, newLocale)
-  }
-
   locale.value = newLocale
-
-  router.push({
+  router.replace({
     path: `/${newLocale}${route.path.replace(/^\/[a-z]{2}/, '')}`,
-    hash: translatedHash,
   })
 }
 </script>
