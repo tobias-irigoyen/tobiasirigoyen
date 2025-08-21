@@ -36,14 +36,14 @@ const { locale } = useI18n()
 
 const sectionAnchors = {
   en: {
-    home: 'inicio',
+    'home': 'inicio',
     'my-work': 'proyectos',
-    contact: 'contacto',
+    'contact': 'contacto',
   },
   es: {
-    inicio: 'home',
-    proyectos: 'my-work',
-    contacto: 'contact',
+    'inicio': 'home',
+    'proyectos': 'my-work',
+    'contacto': 'contact',
   },
 }
 
@@ -53,7 +53,8 @@ function translateAnchor(anchor: string, fromLang: string, toLang: string): stri
   const anchorName = anchor.slice(1) // Remover el #
   const translationMap = fromLang === 'en' ? sectionAnchors.en : sectionAnchors.es
 
-  const translatedAnchor = translationMap[anchorName] || anchorName
+  const translatedAnchor = translationMap[anchorName as keyof typeof translationMap] || anchorName
+
   return `#${translatedAnchor}`
 }
 
