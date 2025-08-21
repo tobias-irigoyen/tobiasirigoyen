@@ -6,7 +6,7 @@
       <div class="flex flex-start mt-8 btns-container">
         <a
           href="#my-work"
-          class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer w-[140px] text-center"
+          class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer w-[140px] text-center my-work-btn"
           >{{ t('my-work') }}</a
         >
         <button
@@ -105,6 +105,14 @@ const downloadResume = () => {
 @media all and (max-width: 576px) {
   .container {
     margin-top: 40px !important;
+  }
+}
+@media all and (max-width: 360px) {
+  .my-work-btn {
+    width: 100%;
+  }
+  h2 {
+    line-height: 1.5;
   }
 }
 </style>

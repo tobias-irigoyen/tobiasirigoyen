@@ -1,6 +1,6 @@
 <template>
   <nav class="flex justify-between items-center pt-8 pb-8 container">
-    <img src="../../assets/logo.svg" class="h-8" />
+    <img src="../../assets/logo.svg" class="h-8 logo" />
     <button
       @click="toggleMobileNav"
       class="mobile-toggle"
@@ -208,6 +208,11 @@ const downloadResume = () => {
 @media all and (min-width: 577px) {
   .mobile-toggle {
     display: none;
+  }
+}
+@media all and (max-width: 360px) {
+  .logo {
+    height: 20px;
   }
 }
 </style>

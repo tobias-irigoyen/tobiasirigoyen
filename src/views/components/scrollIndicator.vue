@@ -117,9 +117,14 @@ function scrollToSection(id: string) {
   transform: translateY(-50%) translateX(-10px);
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 1230px) {
   .scroll-indicator {
     display: none;
+  }
+}
+@media all and (min-width: 1230px) {
+  .scroll-indicator {
+    display: flex;
   }
 }
 </style>
