@@ -136,5 +136,8 @@ const works = ref(work)
   #my-work {
     padding-top: 100px;
   }
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 </style>

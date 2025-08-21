@@ -130,5 +130,8 @@ const { t } = useI18n()
   #contact {
     padding-top: 100px;
   }
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 </style>
