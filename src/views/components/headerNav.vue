@@ -1,8 +1,8 @@
 <template>
   <nav class="flex justify-between items-center pt-8 pb-8 container">
-    <a :href="'#' + t('anchors.home-section')">
+    <button class="hover:cursor-pointer" @click="scrollToTop">
       <img src="../../assets/logo.svg" class="h-8 logo" />
-    </a>
+    </button>
     <button
       @click="toggleMobileNav"
       class="mobile-toggle"
@@ -93,6 +93,10 @@ const downloadResume = () => {
   link.click()
   document.body.removeChild(link)
   closeMobileNav()
+}
+
+const scrollToTop = () => {
+  window.scrollTo(0, 0)
 }
 </script>
 

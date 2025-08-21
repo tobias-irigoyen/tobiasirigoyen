@@ -10,7 +10,7 @@
           <a
             class="text-2xl hover:underline w-[101px] h-[35px]"
             target="_blank"
-            href=":mailto=tobias.irigoyen@gmail.com"
+            href="mailto:tobias.irigoyen@gmail.com"
             >Email
             <svg
               class="ms-auto right-arrow hidden"
