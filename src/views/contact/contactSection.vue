@@ -34,7 +34,7 @@
           <a
             class="text-2xl hover:underline w-[116px] h-[35px]"
             target="_blank"
-            href="github.com/tobias-irigoyen"
+            href="https://github.com/tobias-irigoyen"
             >Github
             <svg
               class="ms-auto right-arrow hidden"
@@ -58,7 +58,7 @@
           <a
             class="text-2xl hover:underline w-[132px] h-[35px]"
             target="_blank"
-            href="linkedin.com/in/tobiasirigoyen"
+            href="https://linkedin.com/in/tobiasirigoyen"
             >Linkedin
             <svg
               class="ms-auto right-arrow hidden"
