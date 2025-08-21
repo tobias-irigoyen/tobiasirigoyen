@@ -1,6 +1,10 @@
 <template>
   <div class="flex items-center gap-2 language-selector">
-    <span :class="['text-xl', locale === 'es' ? 'border-b-1' : '']">ES</span>
+    <span
+      :class="['text-xl', 'hover:cursor-pointer', locale === 'es' ? 'border-b-1' : '']"
+      @click="locale = 'es'"
+      >ES</span
+    >
     <button
       @click="changeLanguage"
       :class="[
@@ -14,7 +18,11 @@
         ]"
       ></div>
     </button>
-    <span :class="['text-xl', locale === 'en' ? 'border-b-1' : '']">EN</span>
+    <span
+      :class="['text-xl', 'hover:cursor-pointer', locale === 'en' ? 'border-b-1' : '']"
+      @click="locale = 'en'"
+      >EN</span
+    >
   </div>
 </template>
 
