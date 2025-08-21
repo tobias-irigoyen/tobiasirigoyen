@@ -7,15 +7,23 @@
       :class="{ active: index === activeSection }"
       href="javascript:void(0)"
       @click.prevent="scrollToSection(section.id)"
-    ></a>
+    >
+      <span class="section-label">{{ section.title }}</span>
+    </a>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
+const { t } = useI18n()
 
-// Lista de secciones (asegúrate que cada sección tenga un id único en el HTML)
-const sections = ref([{ id: 'hero-section' }, { id: 'my-work' }, { id: 'contact' }])
+const sections = computed(() => [
+  { id: 'hero-section', title: t('home') },
+  { id: 'my-work', title: t('my-work') },
+  { id: 'contact', title: t('contact') },
+])
 
 const activeSection = ref(0)
 let observer: IntersectionObserver
@@ -30,7 +38,7 @@ onMounted(() => {
         }
       })
     },
-    { threshold: 0.5 }, // 50% visible
+    { threshold: 0.5 },
   )
 
   sections.value.forEach((section) => {
@@ -70,6 +78,7 @@ function scrollToSection(id: string) {
 }
 
 .square {
+  position: relative;
   width: 1rem;
   height: 1rem;
   border: 1px solid #fff;
@@ -83,6 +92,31 @@ function scrollToSection(id: string) {
   background-color: #fff;
   transform: scale(1.1);
 }
+
+.section-label {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0.5rem;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 0.875rem;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+  transform: translateY(-50%) translateX(10px);
+}
+
+.square:hover .section-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(-10px);
+}
+
 @media all and (max-width: 576px) {
   .scroll-indicator {
     display: none;
