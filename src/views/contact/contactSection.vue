@@ -1,7 +1,7 @@
 <template>
   <section
     class="flex flex-col items-center justify-start !mt-[40px] !mb-[40px] pt-[80px] pb-[80px] container"
-    id="contact"
+    :id="t('anchors.contact')"
   >
     <h2 class="section-title mb-[60px]">{{ t('contact') }}</h2>
     <div>

@@ -14,12 +14,12 @@
 
     <ul class="nav-menu" :class="{ active: isMobileNavOpen }">
       <li>
-        <a class="text-2xl ml-16" href="#my-work" @click="closeMobileNav">
+        <a class="text-2xl ml-16" :href="'#' + t('anchors.work')" @click="closeMobileNav">
           {{ t('my-work') }}
         </a>
       </li>
       <li>
-        <a class="text-2xl ml-16" href="#contact" @click="closeMobileNav">
+        <a class="text-2xl ml-16" :href="'#' + t('anchors.contact')" @click="closeMobileNav">
           {{ t('contact') }}
         </a>
       </li>

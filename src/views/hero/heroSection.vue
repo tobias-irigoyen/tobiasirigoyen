@@ -1,11 +1,11 @@
 <template>
-  <section class="flex justify-center container" id="hero-section">
+  <section class="flex justify-center container" :id="t('anchors.home-section')">
     <div class="mb-16 w-1/2 hero-blocks">
       <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
       <p class="lead">{{ t('lead') }}</p>
       <div class="flex flex-start mt-8 btns-container">
         <a
-          href="#my-work"
+          :href="'#' + t('anchors.work')"
           class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer w-[140px] text-center my-work-btn"
           >{{ t('my-work') }}</a
         >
@@ -48,8 +48,9 @@ const downloadResume = () => {
   margin-bottom: 1rem;
 }*/
 .container {
-  min-height: calc(100vh - 180px);
-  margin-top: 120px;
+  min-height: calc(100vh);
+  padding-top: 334px;
+  margin-top: -214px;
 }
 .hero-image-container {
   margin-bottom: auto;

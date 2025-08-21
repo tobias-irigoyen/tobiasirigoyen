@@ -5,8 +5,7 @@
       :key="section.id"
       class="square"
       :class="{ active: index === activeSection }"
-      href="javascript:void(0)"
-      @click.prevent="scrollToSection(section.id)"
+      :href="'#' + section.id"
     >
       <span class="section-label">{{ section.title }}</span>
     </a>
@@ -20,9 +19,9 @@ import { computed } from 'vue'
 const { t } = useI18n()
 
 const sections = computed(() => [
-  { id: 'hero-section', title: t('home') },
-  { id: 'my-work', title: t('my-work') },
-  { id: 'contact', title: t('contact') },
+  { id: t('anchors.home-section'), title: t('home') },
+  { id: t('anchors.work'), title: t('my-work') },
+  { id: t('anchors.contact'), title: t('contact') },
 ])
 
 const activeSection = ref(0)
@@ -50,21 +49,6 @@ onMounted(() => {
 onUnmounted(() => {
   if (observer) observer.disconnect()
 })
-
-function scrollToSection(id: string) {
-  const el = document.getElementById(id)
-  if (el) {
-    const offsetTop = el.getBoundingClientRect().top + window.pageYOffset
-    const offset = id === 'hero-section' ? 240 : 20
-
-    window.scrollTo({
-      top: offsetTop - offset,
-      behavior: 'smooth',
-    })
-
-    history.pushState(null, '', `#${id}`)
-  }
-}
 </script>
 
 <style scoped>

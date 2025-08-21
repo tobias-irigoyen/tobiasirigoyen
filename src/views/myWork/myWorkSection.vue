@@ -1,5 +1,5 @@
 <template>
-  <section class="container" id="my-work">
+  <section class="container" :id="t('anchors.work')">
     <h2 class="section-title">{{ t('my-work') }}</h2>
     <div class="articles">
       <article v-for="work in works" :key="work.id" class="border border-white work mb-4">
@@ -42,7 +42,7 @@ const works = ref(work)
 </script>
 
 <style lang="scss" scoped>
-#my-work {
+.container {
   padding-top: 100px;
 }
 .work {

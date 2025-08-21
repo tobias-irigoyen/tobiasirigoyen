@@ -23,5 +23,10 @@
     "css3": "CSS3",
     "vue": "Vue.js",
     "figma": "Figma Prototype"
+  },
+  "anchors": {
+    "home-section": "home",
+    "work": "my-work",
+    "contact": "contact"
   }
 }
