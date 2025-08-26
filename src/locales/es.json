@@ -5,8 +5,13 @@
   "my-work": "Proyectos",
   "contact": "Contacto",
   "my-resume": "Mi CV",
+  "technologies": "Tech stack",
+  "description": "Descripción del proyecto",
   "works": {
-    "api-covid": { "title": "API Covid 19", "description": "Descripción de la API COVID 19" },
+    "api-covid": {
+      "title": "API Covid 19",
+      "description": "Este proyecto se desarrolló en el marco de la pandemia por el COVID 19 en el año 2020.\n Contó con un equipo formado por desarrolladores Back-end, Front-end y Diseñadores UI/UX.\n Los desarrolladores Back-end se encargaron de la API REST que consumía datos de la API de la Organización Mundial de la Salud (OMS) y la API de la Organización Mundial de la Salud (OMS). \n Los desarrolladores Front-end se encargaron de la interfaz de usuario y la experiencia del usuario. "
+    },
     "fit": {
       "title": "FIT - Flujo Intercooperativo de Trabajo",
       "description": "Descripción del FIT"

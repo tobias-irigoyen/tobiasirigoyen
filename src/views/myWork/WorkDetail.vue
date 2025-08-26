@@ -1,9 +1,11 @@
 <template>
   <section class="container">
-    <h2 class="text-4xl">{{ t(work?.title) }}</h2>
-    <p>{{ t(work?.description ?? '') }}</p>
-    <ul>
-      <li v-for="skill in work?.skills" :key="skill">{{ t(skill) }}</li>
+    <h2 class="section-title text-center">{{ t(work?.title) }}</h2>
+    <h3 class="text-3xl mb-8">{{ t('description') }}</h3>
+    <p class="text-[20px] mb-8 whitespace-pre-line">{{ t(work?.description ?? '') }}</p>
+    <h3 class="text-3xl mb-8">{{ t('technologies') }}</h3>
+    <ul class="skills">
+      <li class="text-[20px]" v-for="skill in work?.skills" :key="skill">{{ t(skill) }}</li>
     </ul>
   </section>
 </template>
@@ -31,5 +33,11 @@ const work = computed(() => worksArray.find((w: any) => String(w.slug) === slug.
 <style lang="scss" scoped>
 .container {
   min-height: calc(100vh - 300px);
+}
+.skills {
+  margin-left: 1rem;
+  li {
+    list-style: disc;
+  }
 }
 </style>
