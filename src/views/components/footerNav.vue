@@ -4,14 +4,18 @@
       <span>© tobias irigoyen 2025</span>
       <ul class="flex items-center justify-center">
         <li>
-          <a class="text-2xl ml-16 hover:underline" :href="'#' + t('anchors.work')">{{
-            t('my-work')
-          }}</a>
+          <a
+            class="text-2xl ml-16 hover:underline"
+            :href="'/' + locale + '/#' + t('anchors.work')"
+            >{{ t('my-work') }}</a
+          >
         </li>
         <li>
-          <a class="text-2xl ml-16 hover:underline" :href="'#' + t('anchors.contact')">{{
-            t('contact')
-          }}</a>
+          <a
+            class="text-2xl ml-16 hover:underline"
+            :href="'/' + locale + '/#' + t('anchors.contact')"
+            >{{ t('contact') }}</a
+          >
         </li>
         <li>
           <button
@@ -29,6 +33,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
+const { locale } = useI18n()
 
 const downloadResume = () => {
   const link = document.createElement('a')

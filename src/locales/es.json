@@ -6,13 +6,22 @@
   "contact": "Contacto",
   "my-resume": "Mi CV",
   "works": {
-    "api-covid": { "title": "API Covid 19" },
-    "fit": { "title": "FIT - Flujo Intercooperativo de Trabajo" },
-    "aurora": { "title": "Proyecto Aurora" },
-    "nayra": { "title": "Nayra" },
-    "pokedex": { "title": "Pokedex" },
-    "naranjax": { "title": "Naranja X - Soft refactor" },
-    "icbc": { "title": "ICBC Home Banking - Soft refactor" }
+    "api-covid": { "title": "API Covid 19", "description": "Descripción de la API COVID 19" },
+    "fit": {
+      "title": "FIT - Flujo Intercooperativo de Trabajo",
+      "description": "Descripción del FIT"
+    },
+    "aurora": { "title": "Proyecto Aurora", "description": "Descripción del PROYECTO AURORA" },
+    "nayra": { "title": "Nayra", "description": "Descripción de la PAGINA DE NAYRA" },
+    "pokedex": { "title": "Pokedex", "description": "Descripción de la PAGINA DE POKEDEX" },
+    "naranjax": {
+      "title": "Naranja X - Soft refactor",
+      "description": "Descripción de la PAGINA DE NARANJA X"
+    },
+    "icbc": {
+      "title": "ICBC Home Banking - Soft refactor",
+      "description": "Descripción de la PAGINA DE ICBC"
+    }
   },
   "skills": {
     "uiux": "Diseño UI/UX",

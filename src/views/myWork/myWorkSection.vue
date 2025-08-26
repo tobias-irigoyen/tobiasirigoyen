@@ -3,7 +3,10 @@
     <h2 class="section-title">{{ t('my-work') }}</h2>
     <div class="articles">
       <article v-for="work in works" :key="work.id" class="border border-white work mb-4">
-        <a :href="work.link" target="_blank" class="mb-0 flex justify-between">
+        <router-link
+          :to="{ name: 'workDetail', params: { lang: $i18n.locale, slug: work.slug } }"
+          class="mb-0 flex justify-between"
+        >
           <h3>{{ t(work.title) }}</h3>
           <ul class="flex skills gap-1 justify-start">
             <li v-for="skill in work.skills" :key="skill">
@@ -26,7 +29,7 @@
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+        </router-link>
       </article>
     </div>
   </section>

@@ -1,6 +1,7 @@
 <template>
   <nav class="flex justify-between items-center pt-8 pb-8 container">
-    <button class="hover:cursor-pointer" @click="scrollToTop">
+    <button class="hover:cursor-pointer button-logo" @click="scrollToTop">
+      <h1 class="invisible sr-only">Tobías Irigoyen</h1>
       <img src="../../assets/logo.svg" class="h-8 logo" />
     </button>
     <button
@@ -18,7 +19,7 @@
       <li>
         <a
           class="text-2xl ml-16 hover:underline"
-          :href="'#' + t('anchors.work')"
+          :href="'/' + locale + '/#' + t('anchors.work')"
           @click="closeMobileNav"
         >
           {{ t('my-work') }}
@@ -27,7 +28,7 @@
       <li>
         <a
           class="text-2xl ml-16 hover:underline"
-          :href="'#' + t('anchors.contact')"
+          :href="'/' + locale + '/#' + t('anchors.contact')"
           @click="closeMobileNav"
         >
           {{ t('contact') }}
@@ -41,7 +42,7 @@
           {{ t('my-resume') }}
         </button>
       </li>
-      <li class="ml-16"><language-selector></language-selector></li>
+      <li class="ml-16 language-selector-list-item"><language-selector></language-selector></li>
     </ul>
   </nav>
 </template>
@@ -50,6 +51,7 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import languageSelector from './languageSelector.vue'
 import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
 const { t } = useI18n()
 
 const isMobileNavOpen = ref(false)
@@ -207,6 +209,9 @@ const scrollToTop = () => {
     font-size: 18px;
     margin-left: 24px;
   }
+  nav .button-logo {
+    margin-left: 0px !important;
+  }
 }
 
 @media all and (min-width: 577px) and (max-width: 768px) {
@@ -227,6 +232,14 @@ const scrollToTop = () => {
 @media all and (max-width: 360px) {
   .logo {
     height: 20px;
+  }
+}
+@media all and (min-width: 577px) and (max-width: 1100px) {
+  .nav-menu {
+    justify-content: flex-end;
+  }
+  .language-selector-list-item {
+    margin-left: 0;
   }
 }
 </style>
