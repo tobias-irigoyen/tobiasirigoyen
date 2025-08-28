@@ -5,8 +5,9 @@
   "my-work": "Proyectos",
   "contact": "Contacto",
   "my-resume": "Mi CV",
-  "technologies": "Tech stack",
+  "technologies": "Tecnologías",
   "description": "Descripción del proyecto",
+  "link": "Link",
   "works": {
     "api-covid": {
       "title": "API Covid 19",

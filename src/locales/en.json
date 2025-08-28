@@ -6,9 +6,13 @@
   "contact": "Contact",
   "my-resume": "My Resume",
   "description": "Project description",
-  "technologies": "Stack",
+  "technologies": "Technologies",
+  "link": "Link",
   "works": {
-    "api-covid": { "title": "API Covid 19", "description": "API COVID 19 Description" },
+    "api-covid": {
+      "title": "API Covid 19",
+      "description": "This project was developed in the context of the COVID-19 pandemic in 2020.\n It had a team composed of Back-end developers, Front-end developers, and UI/UX Designers.\n The Back-end developers were in charge of the REST API that consumed data from the World Health Organization (WHO) API.\n The Front-end developers were responsible for the user interface and the user experience."
+    },
     "fit": {
       "title": "FIT - Flujo Intercooperativo de Trabajo",
       "description": "FIT Description"

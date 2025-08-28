@@ -18,6 +18,11 @@ body {
   font-size: 3rem;
   margin-bottom: 2rem;
 }
+
+/*.swiper-button-next,
+.swiper-button-prev {
+  color: #fff !important;
+}*/
 @media all and (max-width: 576px) {
   .container {
     max-width: calc(100% - 32px);

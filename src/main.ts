@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 import router from './router'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import './main.scss'
 //import i18n from './i18n.ts'
 import messages from './locales/index.ts' // tus JSON de traducciones

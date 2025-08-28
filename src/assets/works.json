@@ -5,7 +5,13 @@
     "slug": "api-covid",
     "description": "works.api-covid.description",
     "link": "https://tobias-irigoyen.github.io/landing-api-covid/",
-    "skills": ["skills.uiux", "skills.html5", "skills.css3"]
+    "skills": ["skills.uiux", "skills.html5", "skills.css3"],
+    "images": [
+      "/src/assets/works/api-covid/logo.jpg",
+      "/src/assets/works/api-covid/1.png",
+      "/src/assets/works/api-covid/2.png",
+      "/src/assets/works/api-covid/3.png"
+    ]
   },
   {
     "id": 2,
@@ -13,11 +19,22 @@
     "slug": "fit",
     "description": "works.fit.description",
     "link": "https://facttic.org.ar/fit/",
-    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"]
+    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"],
+    "images": [
+      "/src/assets/works/fit/logo.jpg",
+      "/src/assets/works/fit/1.png",
+      "/src/assets/works/fit/2.png",
+      "/src/assets/works/fit/3.png",
+      "/src/assets/works/fit/4.png",
+      "/src/assets/works/fit/5.png",
+      "/src/assets/works/fit/6.png",
+      "/src/assets/works/fit/7.png"
+    ]
   },
   {
     "id": 3,
     "title": "works.aurora.title",
+    "images": ["/placeholder-work-1.jpg", "/placeholder-work-2.jpg", "/placeholder-work-3.jpg"],
     "slug": "proyecto-aurora",
     "description": "works.aurora.description",
     "link": "https://www.phaurora.com/",

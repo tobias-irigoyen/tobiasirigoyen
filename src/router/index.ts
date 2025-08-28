@@ -17,9 +17,9 @@ const router = createRouter({
     }
     if (to.name === 'workDetail') {
       // si querés que quede la posición
-      return false
+      //return false
       // o si querés que suba arriba:
-      // return { top: 0 }
+      return { top: 0 }
     }
     return { top: 0 }
   },
