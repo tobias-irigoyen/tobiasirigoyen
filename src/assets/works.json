@@ -34,11 +34,20 @@
   {
     "id": 3,
     "title": "works.aurora.title",
-    "images": ["/placeholder-work-1.jpg", "/placeholder-work-2.jpg", "/placeholder-work-3.jpg"],
     "slug": "proyecto-aurora",
     "description": "works.aurora.description",
     "link": "https://www.phaurora.com/",
-    "skills": ["skills.uiux", "skills.uiux-improvements", "skills.uiux-system"]
+    "skills": ["skills.uiux", "skills.uiux-improvements", "skills.uiux-system"],
+    "images": [
+      "/src/assets/works/ph-aurora/logo.png",
+      "/src/assets/works/ph-aurora/1.png",
+      "/src/assets/works/ph-aurora/2.png",
+      "/src/assets/works/ph-aurora/3.png",
+      "/src/assets/works/ph-aurora/4.png",
+      "/src/assets/works/ph-aurora/5.png",
+      "/src/assets/works/ph-aurora/6.png",
+      "/src/assets/works/ph-aurora/7.png"
+    ]
   },
   {
     "id": 4,
@@ -46,7 +55,14 @@
     "slug": "nayra",
     "description": "works.nayra.description",
     "link": "https://nayra.coop/",
-    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"]
+    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"],
+    "images": [
+      "/src/assets/works/nayra/logo.jpg",
+      "/src/assets/works/nayra/1.png",
+      "/src/assets/works/nayra/2.png",
+      "/src/assets/works/nayra/3.png",
+      "/src/assets/works/nayra/4.png"
+    ]
   },
   {
     "id": 5,
@@ -54,7 +70,17 @@
     "slug": "pokedex",
     "description": "works.pokedex.description",
     "link": "https://tobias-irigoyen.github.io/pokedex/",
-    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"]
+    "skills": ["skills.uiux", "skills.vue", "skills.html5", "skills.css3"],
+    "images": [
+      "/src/assets/works/pokedex/logo.jpg",
+      "/src/assets/works/pokedex/1.png",
+      "/src/assets/works/pokedex/2.png",
+      "/src/assets/works/pokedex/3.png",
+      "/src/assets/works/pokedex/4.png",
+      "/src/assets/works/pokedex/5.png",
+      "/src/assets/works/pokedex/6.png",
+      "/src/assets/works/pokedex/7.png"
+    ]
   },
   {
     "id": 6,
