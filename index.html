@@ -5,10 +5,52 @@
     <link rel="icon" href="/favicon-dark.svg" id="favicon" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tobías Irigoyen - UI/UX Designer and Front-End dev</title>
+    <style>
+      #app-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      #app-loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .animated-logo {
+        animation: blink 2s ease-in-out infinite;
+      }
+
+      @keyframes blink {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="app-loader">
+      <div class="animated-logo">
+        <img src="src/assets/logo.svg" height="25" width="169.7" alt="logo" />
+      </div>
+    </div>
+
     <div id="app"></div>
+
     <script type="module" src="/src/main.ts"></script>
+
     <script>
       function updateFavicon() {
         const favicon = document.getElementById('favicon')
@@ -21,7 +63,6 @@
         }
       }
       updateFavicon()
-
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon)
     </script>
   </body>

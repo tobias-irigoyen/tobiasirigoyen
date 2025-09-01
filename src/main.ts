@@ -4,12 +4,11 @@ import App from './App.vue'
 import router from './router'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './main.scss'
-//import i18n from './i18n.ts'
-import messages from './locales/index.ts' // tus JSON de traducciones
+import messages from './locales/index.ts'
 
 const i18n = createI18n({
   legacy: false,
-  locale: 'es', // valor por defecto
+  locale: 'es',
   fallbackLocale: 'en',
   messages,
 })
@@ -22,10 +21,18 @@ app.use(i18n)
 router.beforeEach((to, from, next) => {
   const lang = to.params.lang as string
   if (!['en', 'es'].includes(lang)) {
-    return next('/es/') // fallback a español
+    return next('/es/')
   }
   i18n.global.locale.value = lang
   return next()
 })
 
 app.mount('#app')
+
+setTimeout(() => {
+  const loader = document.getElementById('app-loader')
+  if (loader) {
+    loader.classList.add('hidden')
+    setTimeout(() => loader.remove(), 600)
+  }
+}, 2500)
