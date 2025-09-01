@@ -23,9 +23,12 @@
     },
     "nayra": {
       "title": "Nayra",
-      "description": "Trabajé en el diseño y desarrollo en Vue.js del sitio institucional de Nayra, una empresa cooperativa de tecnología. \n El sitio consta de una sección de Inicio, Sobre nosotros, Trabajos y Contacto. It also features a language selector."
+      "description": "Trabajé en el diseño y desarrollo en Vue.js del sitio institucional de Nayra, una empresa cooperativa de tecnología. \n El sitio consta de una sección de Inicio, Sobre nosotros, Trabajos y Contacto. Además cuenta con un selector de idiomas."
     },
-    "pokedex": { "title": "Pokedex", "description": "Descripción de la PAGINA DE POKEDEX" },
+    "pokedex": {
+      "title": "Pokedex",
+      "description": "En el proyecto Pokedex trabajé en el diseño y desarrollo en Vue.js. Consiste en un buscador de pokemons, los cuales se pueden encontrar según su nombre, número o tipo. \n Cada Pokemon posee su información detallada, como su tipo, habilidades, movimientos y más. Presionando una tarjeta de Pokemon se puede ver su información detallada. \n El sitio consta de una sección de Inicio, Buscador y Listado de Pokemons. El buscador cuenta con un filtro por tipo y un buscador por nombre y número. El listado cuenta con un paginador y una selección de cantidad de Pokemons a mostrar. \n También tiene un indicador de carga de Pokemons y un indicador de error en caso de que no se encuentre el Pokemon."
+    },
     "naranjax": {
       "title": "Naranja X - Soft refactor",
       "description": "Descripción de la PAGINA DE NARANJA X"

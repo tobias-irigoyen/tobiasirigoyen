@@ -88,7 +88,17 @@
     "description": "works.naranjax.description",
     "slug": "naranja-x-wallet",
     "link": "https://bit.ly/naranjax_wallet",
-    "skills": ["skills.uiux-refactor", "skills.figma"]
+    "skills": ["skills.uiux-refactor", "skills.figma"],
+    "images": [
+      "/src/assets/works/naranja-x/logo.jpg",
+      "/src/assets/works/naranja-x/1.jpg",
+      "/src/assets/works/naranja-x/2.jpg",
+      "/src/assets/works/naranja-x/3.jpg",
+      "/src/assets/works/naranja-x/4.jpg",
+      "/src/assets/works/naranja-x/5.jpg",
+      "/src/assets/works/naranja-x/6.jpg",
+      "/src/assets/works/naranja-x/7.jpg"
+    ]
   },
   {
     "id": 7,
@@ -96,6 +106,20 @@
     "description": "works.icbc.description",
     "slug": "icbc-home-banking",
     "link": "https://bit.ly/icbc_hb",
-    "skills": ["skills.uiux-refactor", "skills.figma"]
+    "skills": ["skills.uiux-refactor", "skills.figma"],
+    "images": [
+      "/src/assets/works/icbc/logo.jpg",
+      "/src/assets/works/icbc/1.jpg",
+      "/src/assets/works/icbc/2.jpg",
+      "/src/assets/works/icbc/3.jpg",
+      "/src/assets/works/icbc/4.jpg",
+      "/src/assets/works/icbc/5.jpg",
+      "/src/assets/works/icbc/6.jpg",
+      "/src/assets/works/icbc/7.jpg",
+      "/src/assets/works/icbc/8.jpg",
+      "/src/assets/works/icbc/9.jpg",
+      "/src/assets/works/icbc/10.jpg",
+      "/src/assets/works/icbc/11.jpg"
+    ]
   }
 ]

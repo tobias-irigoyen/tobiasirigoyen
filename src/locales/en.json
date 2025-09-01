@@ -25,7 +25,10 @@
       "title": "Nayra",
       "description": "I worked on the design and development in Vue.js of Nayra's corporate website, a technology cooperative company. \n The site includes a Home section, About us, Projects, and Contact. It also features a language selector."
     },
-    "pokedex": { "title": "Pokedex", "description": "pokedex Description" },
+    "pokedex": {
+      "title": "Pokedex",
+      "description": "In Pokedex project, I worked on the design and development using Vue.js. It consists of a Pokémon searcher, where Pokémon can be found by their name, number, or type. \n Each Pokémon has detailed information, such as its type, abilities, moves, and more. Clicking on a Pokémon card displays its detailed information. \n The site includes a Home section, a Search section, and a Pokémon List section. The searcher features a type filter and a search by name or number. The  list includes a paginator and an option to select the number of Pokémon to display. It also includes a loading indicator for Pokémon and an error indicator in case a Pokémon is not found."
+    },
     "naranjax": {
       "title": "Naranja X - Soft refactor",
       "description": "Naranja X Description"
