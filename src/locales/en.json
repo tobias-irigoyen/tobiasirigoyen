@@ -17,8 +17,14 @@
       "title": "FIT - Flujo Intercooperativo de Trabajo",
       "description": "The FIT project involved the design and development in Vue.js of the institutional website for FIT – Flujo Intercooperativo de Trabajo. This platform is an intercooperative network composed of technology companies belonging to the Argentine Federation of Technology, Innovation, and Knowledge Worker Cooperatives. \n The site features a responsive design and layout, and it presents the description and operation of the platform, the technologies used, success stories, and a contact form."
     },
-    "aurora": { "title": "Proyecto Aurora", "description": "aurora Description" },
-    "nayra": { "title": "Nayra", "description": "nayra Description" },
+    "aurora": {
+      "title": "Proyecto Aurora",
+      "description": "Aurora Project is a Real Estate segment project, in which I worked on developing the design system by creating atoms, components, and layouts. \n I applied these elements in the Home, Building, Apartment, and Contact views."
+    },
+    "nayra": {
+      "title": "Nayra",
+      "description": "I worked on the design and development in Vue.js of Nayra's corporate website, a technology cooperative company. \n The site includes a Home section, About us, Projects, and Contact. It also features a language selector."
+    },
     "pokedex": { "title": "Pokedex", "description": "pokedex Description" },
     "naranjax": {
       "title": "Naranja X - Soft refactor",
