@@ -2,7 +2,6 @@
   <section class="container pb-[100px]">
     <h2 class="section-title text-center mt-4">{{ work ? t(work.title) : '' }}</h2>
 
-    <!-- Image Slider -->
     <div class="slider-container mb-6" v-if="work?.images && work.images.length > 0">
       <swiper
         :modules="[Pagination, Navigation]"
@@ -25,37 +24,27 @@
       </swiper>
     </div>
 
-    <!-- Lightbox -->
     <div
-      v-if="selectedIndex !== null"
+      v-if="isLightboxOpen"
       class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-      @touchstart="onTouchStart"
-      @touchend="onTouchEnd"
     >
-      <img
-        :src="work?.images[selectedIndex]"
-        class="max-h-[90vh] max-w-[80vw] rounded-lg shadow-lg"
-      />
+      <swiper
+        :modules="[Pagination, Navigation]"
+        :loop="true"
+        navigation
+        :initial-slide="selectedIndex"
+        class="lightboxSwiper w-[80vw] max-h-[90vh]"
+      >
+        <swiper-slide v-for="(image, index) in work?.images" :key="'light-' + index">
+          <img :src="image" class="max-h-[90vh] w-auto rounded-lg shadow-lg" />
+        </swiper-slide>
+      </swiper>
 
       <button
         class="absolute top-6 right-6 text-white text-3xl cursor-pointer"
         @click="closeLightbox"
       >
         <i class="bi bi-x-lg"></i>
-      </button>
-
-      <button
-        class="absolute btn-lightbox-prev text-white flex items-center justify-center cursor-pointer"
-        @click.stop="prevImage"
-      >
-        <i class="bi bi-chevron-left"></i>
-      </button>
-
-      <button
-        class="absolute btn-lightbox-next text-white flex items-center justify-center cursor-pointer"
-        @click.stop="nextImage"
-      >
-        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
 
@@ -71,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import workData from '@/assets/works.json'
 import { useI18n } from 'vue-i18n'
@@ -98,63 +87,16 @@ const work = computed<WorkItem | undefined>(() =>
   worksArray.find((w) => String(w.slug) === slug.value),
 )
 
-// Lightbox state (usamos índice en lugar de url)
-const selectedIndex = ref<number | null>(null)
+const selectedIndex = ref<number>(0)
+const isLightboxOpen = ref(false)
 
 function openLightbox(index: number) {
   selectedIndex.value = index
+  isLightboxOpen.value = true
 }
 
 function closeLightbox() {
-  selectedIndex.value = null
-}
-
-function prevImage() {
-  if (!work.value) return
-  selectedIndex.value =
-    selectedIndex.value === 0 ? work.value.images.length - 1 : (selectedIndex.value ?? 0) - 1
-}
-
-function nextImage() {
-  if (!work.value) return
-  selectedIndex.value =
-    selectedIndex.value === work.value.images.length - 1 ? 0 : (selectedIndex.value ?? 0) + 1
-}
-
-function handleKeydown(e: KeyboardEvent) {
-  if (selectedIndex.value === null) return
-  if (e.key === 'ArrowLeft') prevImage()
-  if (e.key === 'ArrowRight') nextImage()
-  if (e.key === 'Escape') closeLightbox()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-  //window.scrollTo(0, 0)
-})
-onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
-
-const touchStartX = ref<number | null>(null)
-
-function onTouchStart(e: TouchEvent) {
-  touchStartX.value = e.changedTouches[0].clientX
-}
-
-function onTouchEnd(e: TouchEvent) {
-  if (touchStartX.value === null) return
-  const touchEndX = e.changedTouches[0].clientX
-  const diff = touchStartX.value - touchEndX
-
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) {
-      // swipe left → next
-      nextImage()
-    } else {
-      // swipe right → prev
-      prevImage()
-    }
-  }
-  touchStartX.value = null
+  isLightboxOpen.value = false
 }
 </script>
 
@@ -168,19 +110,16 @@ function onTouchEnd(e: TouchEvent) {
     list-style: disc;
   }
 }
-
 .swiper {
   width: 100%;
   height: auto;
 }
-
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
-
 .swiper-slide img,
 .swiper-slide a {
   display: block;
@@ -191,7 +130,6 @@ function onTouchEnd(e: TouchEvent) {
   max-width: 92%;
   margin: auto;
 }
-
 :deep(.swiper-pagination-bullet) {
   width: 12px;
   height: 12px;
@@ -199,26 +137,21 @@ function onTouchEnd(e: TouchEvent) {
   opacity: 0.4;
   margin-right: 8px !important;
 }
-
 :deep(.swiper-pagination-bullet-active) {
   background: #3b82f6;
   opacity: 1;
 }
-
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
   color: #fff !important;
   width: 40px;
   height: 40px;
 }
-
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 20px;
   font-weight: bold;
 }
-
-/* Custom styles */
 .slider-container {
   position: relative;
   margin: 2rem 0;
@@ -242,12 +175,10 @@ function onTouchEnd(e: TouchEvent) {
   width: 20px;
   right: 0;
 }
-
 :deep(.swiper-button-prev::after),
 :deep(.swiper-button-next::after) {
   font-size: 24px;
 }
-
 @media all and (max-width: 1400px) {
   :deep(.swiper-slide img) {
     width: 83%;
@@ -261,7 +192,6 @@ function onTouchEnd(e: TouchEvent) {
   right: 20px;
   font-size: 2rem;
 }
-
 @media all and (max-width: 576px) {
   .btn-lightbox-prev {
     left: 10px;
@@ -271,5 +201,9 @@ function onTouchEnd(e: TouchEvent) {
     right: 10px;
     font-size: 1.5rem;
   }
+}
+.lightboxSwiper {
+  width: 80vw;
+  max-height: 90vh;
 }
 </style>
