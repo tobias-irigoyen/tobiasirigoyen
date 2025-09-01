@@ -18,18 +18,16 @@
     <ul class="nav-menu" :class="{ active: isMobileNavOpen }">
       <li>
         <a
-          class="text-2xl ml-16 hover:underline"
-          :href="'/' + locale + '/#' + t('anchors.work')"
-          @click="closeMobileNav"
+          class="text-2xl ml-16 hover:underline hover:cursor-pointer"
+          @click="navigateToSection('work')"
         >
           {{ t('my-work') }}
         </a>
       </li>
       <li>
         <a
-          class="text-2xl ml-16 hover:underline"
-          :href="'/' + locale + '/#' + t('anchors.contact')"
-          @click="closeMobileNav"
+          class="text-2xl ml-16 hover:underline hover:cursor-pointer"
+          @click="navigateToSection('contact')"
         >
           {{ t('contact') }}
         </a>
@@ -48,12 +46,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import languageSelector from './languageSelector.vue'
 import { useI18n } from 'vue-i18n'
-const { locale } = useI18n()
-const { t } = useI18n()
 
+const { locale, t } = useI18n()
+const router = useRouter()
+const route = useRoute()
 const isMobileNavOpen = ref(false)
 
 const toggleMobileNav = () => {
@@ -80,12 +80,54 @@ const handleResize = () => {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
+
+  // Hacer scroll automático si la ruta tiene metadata de sección
+  if (route.meta?.section) {
+    // Pequeño delay para asegurar que el DOM esté listo
+    setTimeout(() => {
+      const anchor = t(`anchors.${route.meta.section}`)
+      scrollToSection(anchor)
+    }, 100)
+  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
+
+const getLocalizedPath = (sectionKey: string): string => {
+  if (sectionKey === 'work') {
+    return locale.value === 'en' ? 'work' : 'proyectos'
+  }
+  if (sectionKey === 'contact') {
+    return locale.value === 'en' ? 'contact' : 'contacto'
+  }
+  return sectionKey
+}
+
+const navigateToSection = async (sectionKey: string) => {
+  closeMobileNav()
+
+  const localizedPath = getLocalizedPath(sectionKey)
+
+  await router.push(`/${locale.value}/${localizedPath}`)
+
+  setTimeout(() => {
+    const anchor = t(`anchors.${sectionKey}`)
+    scrollToSection(anchor)
+  }, 50)
+}
+
+const scrollToSection = (anchor: string) => {
+  const element = document.getElementById(anchor)
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+}
 
 const downloadResume = () => {
   const link = document.createElement('a')
@@ -98,7 +140,11 @@ const downloadResume = () => {
 }
 
 const scrollToTop = () => {
-  window.scrollTo(0, 0)
+  if (route.name !== 'Home') {
+    router.push(`/${locale.value}/`)
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 }
 </script>
 

@@ -5,7 +5,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/:lang(en|es)/', name: 'Home', component: Home },
+    {
+      path: '/:lang(en|es)/',
+      name: 'Home',
+      component: Home,
+    },
+    {
+      path: '/:lang(en|es)/:workSection(work|proyectos)',
+      name: 'Work',
+      component: Home,
+      meta: { section: 'work' },
+    },
+    {
+      path: '/:lang(en|es)/:contactSection(contact|contacto)',
+      name: 'Contact',
+      component: Home,
+      meta: { section: 'contact' },
+    },
     {
       path: '/:lang(en|es)/:section(projects|proyectos)/:slug',
       name: 'workDetail',
@@ -14,7 +30,11 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) return { el: to.hash, behavior: 'smooth' }
+    // No hacer scroll automático para rutas con secciones
+    // El componente se encargará del scroll
+    if (to.meta?.section) {
+      return false
+    }
     if (savedPosition) return savedPosition
     return { top: 0 }
   },
@@ -23,6 +43,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const lang = to.params.lang as string
   const section = to.params.section as string
+  const workSection = to.params.workSection as string
+  const contactSection = to.params.contactSection as string
 
   if (lang && section) {
     const correctSection = lang === 'en' ? 'projects' : 'proyectos'
@@ -30,6 +52,28 @@ router.beforeEach((to, from, next) => {
       return next({
         ...to,
         params: { ...to.params, section: correctSection },
+        replace: true,
+      })
+    }
+  }
+
+  if (lang && workSection) {
+    const correctWorkSection = lang === 'en' ? 'work' : 'proyectos'
+    if (workSection !== correctWorkSection) {
+      return next({
+        ...to,
+        params: { ...to.params, workSection: correctWorkSection },
+        replace: true,
+      })
+    }
+  }
+
+  if (lang && contactSection) {
+    const correctContactSection = lang === 'en' ? 'contact' : 'contacto'
+    if (contactSection !== correctContactSection) {
+      return next({
+        ...to,
+        params: { ...to.params, contactSection: correctContactSection },
         replace: true,
       })
     }
