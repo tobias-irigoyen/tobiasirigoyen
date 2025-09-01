@@ -5,17 +5,19 @@
       <ul class="flex items-center justify-center">
         <li>
           <a
-            class="text-2xl ml-16 hover:underline"
-            :href="'/' + locale + '/#' + t('anchors.work')"
-            >{{ t('my-work') }}</a
+            class="text-2xl ml-16 hover:underline hover:cursor-pointer"
+            @click="navigateToSection('work')"
           >
+            {{ t('my-work') }}
+          </a>
         </li>
         <li>
           <a
-            class="text-2xl ml-16 hover:underline"
-            :href="'/' + locale + '/#' + t('anchors.contact')"
-            >{{ t('contact') }}</a
+            class="text-2xl ml-16 hover:underline hover:cursor-pointer"
+            @click="navigateToSection('contact')"
           >
+            {{ t('contact') }}
+          </a>
         </li>
         <li>
           <button
@@ -32,8 +34,41 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
-const { locale } = useI18n()
+import { useRouter } from 'vue-router'
+
+const { t, locale } = useI18n()
+const router = useRouter()
+
+const getLocalizedPath = (sectionKey: string): string => {
+  if (sectionKey === 'work') {
+    return locale.value === 'en' ? 'work' : 'proyectos'
+  }
+  if (sectionKey === 'contact') {
+    return locale.value === 'en' ? 'contact' : 'contacto'
+  }
+  return sectionKey
+}
+
+const navigateToSection = async (sectionKey: string) => {
+  const localizedPath = getLocalizedPath(sectionKey)
+
+  await router.push(`/${locale.value}/${localizedPath}`)
+
+  setTimeout(() => {
+    const anchor = t(`anchors.${sectionKey}`)
+    scrollToSection(anchor)
+  }, 50)
+}
+
+const scrollToSection = (anchor: string) => {
+  const element = document.getElementById(anchor)
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+}
 
 const downloadResume = () => {
   const link = document.createElement('a')
@@ -53,7 +88,6 @@ const downloadResume = () => {
       margin-bottom: 2rem;
     }
   }
-
   footer nav ul {
     flex-direction: column;
     display: flex;
