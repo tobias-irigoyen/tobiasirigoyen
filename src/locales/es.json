@@ -15,7 +15,7 @@
     },
     "fit": {
       "title": "FIT - Flujo Intercooperativo de Trabajo",
-      "description": "Descripción del FIT"
+      "description": "El proyecto del FIT consistió en el diseño y desarrollo en Vue.js del sitio institucional del FIT - Flujo Intercooperativo de Trabajo. Este espacio es una red intercooperativa conformada por empresas tecnológicas pertenecientes a la Federación Argentina de Cooperativas de Trabajo de Tecnología, Innovación y Conocimiento. \n El sitio posee un diseño y maquetado responsive y muestra la descripción y funcionamiento del espacio, las tecnologías utilizadas, casos de éxito y un formulario de contacto."
     },
     "aurora": { "title": "Proyecto Aurora", "description": "Descripción del PROYECTO AURORA" },
     "nayra": { "title": "Nayra", "description": "Descripción de la PAGINA DE NAYRA" },
