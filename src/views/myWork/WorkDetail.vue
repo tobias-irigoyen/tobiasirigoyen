@@ -26,6 +26,7 @@
     <div
       v-if="isLightboxOpen"
       class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+      @click.self="closeLightbox"
     >
       <swiper
         :modules="[Pagination, Navigation]"
@@ -58,8 +59,8 @@
       <li class="text-[20px]" v-for="skill in work?.skills" :key="skill">{{ t(skill) }}</li>
     </ul>
     <h3 class="text-3xl mb-6">{{ t('link') }}</h3>
-    <a :href="work?.link" class="project-link hover:underline">{{ work?.link }}</a>
-    <h3 class="text-3xl mt-8 mb-6">{{ t('related-works') }}</h3>
+    <a :href="work?.link" class="project-link text-[20px] hover:underline">{{ work?.link }}</a>
+    <h3 class="text-3xl mt-8 mb-8">{{ t('related-works') }}</h3>
     <swiper
       :modules="[Navigation]"
       :space-between="32"
