@@ -149,5 +149,8 @@ const getWorkLink = (slug: string) => {
   h2 {
     font-size: 2.5rem;
   }
+  .work a .skills li {
+    font-size: 1rem !important;
+  }
 }
 </style>

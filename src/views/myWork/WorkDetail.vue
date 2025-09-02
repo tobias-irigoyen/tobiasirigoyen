@@ -58,7 +58,7 @@
       <li class="text-[20px]" v-for="skill in work?.skills" :key="skill">{{ t(skill) }}</li>
     </ul>
     <h3 class="text-3xl mb-6">{{ t('link') }}</h3>
-    <a :href="work?.link" class="hover:underline">{{ work?.link }}</a>
+    <a :href="work?.link" class="project-link hover:underline">{{ work?.link }}</a>
     <h3 class="text-3xl mt-8 mb-6">{{ t('related-works') }}</h3>
     <swiper
       :modules="[Navigation]"
@@ -76,7 +76,7 @@
       <swiper-slide v-for="work in relatedWorks" :key="work.id">
         <article class="border border-white w-100 h-[144px] work p-4 rounded-lg shadow-md">
           <router-link :to="getWorkLink(work.slug)">
-            <h3 class="text-xl font-semibold mb-2">{{ t(work.title) }}</h3>
+            <h3 class="related-project-title text-xl font-semibold mb-2">{{ t(work.title) }}</h3>
             <svg
               class="ms-auto right-arrow"
               width="48"
@@ -258,6 +258,20 @@ const relatedWorks = computed(() =>
   .btn-lightbox-next {
     right: 10px;
     font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  .related-project-title {
+    font-size: 1.5rem;
+  }
+  p,
+  .skills li,
+  .project-link {
+    font-size: 1.125rem;
   }
 }
 .lightboxSwiper {

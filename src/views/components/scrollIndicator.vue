@@ -2,10 +2,10 @@
   <div class="scroll-indicator">
     <a
       v-for="(section, index) in sections"
-      :key="section.id"
+      :key="section.key"
       class="square"
       :class="{ active: index === activeSection }"
-      :href="'#' + section.id"
+      @click.prevent="navigateToSection(section.key)"
     >
       <span class="section-label">{{ section.title }}</span>
     </a>
@@ -13,15 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
-const { t } = useI18n()
+import { useRouter } from 'vue-router'
 
+const { t, locale } = useI18n()
+const router = useRouter()
 const sections = computed(() => [
-  { id: t('anchors.home-section'), title: t('home') },
-  { id: t('anchors.work'), title: t('my-work') },
-  { id: t('anchors.contact'), title: t('contact') },
+  { key: 'home-section', title: t('home') },
+  { key: 'work', title: t('my-work') },
+  { key: 'contact', title: t('contact') },
 ])
 
 const activeSection = ref(0)
@@ -32,7 +33,9 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const index = sections.value.findIndex((s) => s.id === entry.target.id)
+          const index = sections.value.findIndex(
+            (s) => s.key === entry.target.id || t(`anchors.${s.key}`) === entry.target.id,
+          )
           if (index !== -1) activeSection.value = index
         }
       })
@@ -41,7 +44,7 @@ onMounted(() => {
   )
 
   sections.value.forEach((section) => {
-    const el = document.getElementById(section.id)
+    const el = document.getElementById(t(`anchors.${section.key}`))
     if (el) observer.observe(el)
   })
 })
@@ -49,9 +52,35 @@ onMounted(() => {
 onUnmounted(() => {
   if (observer) observer.disconnect()
 })
+
+const getLocalizedPath = (sectionKey: string) => {
+  if (sectionKey === 'work') return locale.value === 'en' ? 'work' : 'proyectos'
+  if (sectionKey === 'contact') return locale.value === 'en' ? 'contact' : 'contacto'
+  return sectionKey
+}
+
+const scrollToSection = (anchor: string) => {
+  const element = document.getElementById(anchor)
+  if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+const navigateToSection = async (sectionKey: string) => {
+  if (sectionKey === 'home-section') {
+    const anchor = t(`anchors.${sectionKey}`)
+    scrollToSection(anchor)
+    return
+  }
+
+  const localizedPath = getLocalizedPath(sectionKey)
+  await router.push(`/${locale.value}/${localizedPath}`)
+  setTimeout(() => {
+    const anchor = t(`anchors.${sectionKey}`)
+    scrollToSection(anchor)
+  }, 50)
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .scroll-indicator {
   position: fixed;
   top: 50%;
@@ -70,6 +99,9 @@ onUnmounted(() => {
   transition:
     background-color 0.3s,
     transform 0.3s;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .square.active,

@@ -1,11 +1,11 @@
 <template>
   <section class="flex justify-center container" :id="t('anchors.home-section')">
     <div class="mb-16 w-1/2 hero-blocks">
-      <h2 class="text-5xl mb-8 leading-16">{{ t('intro') }}</h2>
+      <h2 class="text-5xl mb-8 leading-16 intro-title">{{ t('intro') }}</h2>
       <p class="lead">{{ t('lead') }}</p>
       <div class="flex flex-start mt-8 btns-container">
         <a
-          :href="'#' + t('anchors.work')"
+          @click="navigateToSection('work')"
           class="border border-white py-2 px-3 bg-white !text-black text-[18px] hover:bg-black hover:!text-white hover:cursor-pointer w-[140px] text-center my-work-btn"
           >{{ t('my-work') }}</a
         >
@@ -21,14 +21,14 @@
       <img src="../../assets/hero-image.svg" alt="hero image" class="w-130 hero-image" />
     </div>
   </section>
-  <!--a class="down-arrow" href="my-work">
-    <img src="../../assets/down-arrow.svg" alt="down arrow" height="20" />
-  </a-->
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+import { useRouter, useRoute } from 'vue-router'
+const { locale, t } = useI18n()
+const router = useRouter()
+const route = useRoute()
 
 const downloadResume = () => {
   const link = document.createElement('a')
@@ -38,15 +38,38 @@ const downloadResume = () => {
   link.click()
   document.body.removeChild(link)
 }
+const getLocalizedPath = (sectionKey: string): string => {
+  if (sectionKey === 'work') {
+    return locale.value === 'en' ? 'work' : 'proyectos'
+  }
+  if (sectionKey === 'contact') {
+    return locale.value === 'en' ? 'contact' : 'contacto'
+  }
+  return sectionKey
+}
+
+const scrollToSection = (anchor: string) => {
+  const element = document.getElementById(anchor)
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+}
+const navigateToSection = async (sectionKey: string) => {
+  const localizedPath = getLocalizedPath(sectionKey)
+
+  await router.push(`/${locale.value}/${localizedPath}`)
+
+  setTimeout(() => {
+    const anchor = t(`anchors.${sectionKey}`)
+    scrollToSection(anchor)
+  }, 50)
+}
 </script>
 
 <style lang="scss" scoped>
-/*.down-arrow {
-  display: flex;
-  justify-content: center;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-}*/
 .container {
   min-height: calc(100vh);
   padding-top: 334px;
@@ -107,6 +130,9 @@ const downloadResume = () => {
   .container {
     margin-top: 40px !important;
     padding-top: 0px;
+  }
+  .intro-title {
+    font-size: 2.75rem;
   }
 }
 @media all and (max-width: 360px) {
