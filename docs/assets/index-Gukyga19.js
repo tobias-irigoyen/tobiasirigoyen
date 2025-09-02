@@ -13507,10 +13507,6 @@ const Sc = [
   Js = Uh({
     history: _h('/'),
     routes: [
-      {
-        path: '/',
-        redirect: (e) => `/${navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en'}/`,
-      },
       { path: '/:lang(en|es)/', name: 'Home', component: xr },
       {
         path: '/:lang(en|es)/:workSection(work|proyectos)',
