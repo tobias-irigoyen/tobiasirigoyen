@@ -6,6 +6,15 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      redirect: (to) => {
+        // Detectar idioma del navegador
+        const browserLang = navigator.language.toLowerCase()
+        const lang = browserLang.startsWith('es') ? 'es' : 'en'
+        return `/${lang}/`
+      },
+    },
+    {
       path: '/:lang(en|es)/',
       name: 'Home',
       component: Home,
