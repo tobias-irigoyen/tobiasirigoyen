@@ -73,7 +73,7 @@
       }"
       class="relatedWorksSwiper"
     >
-      <swiper-slide v-for="work in works" :key="work.id">
+      <swiper-slide v-for="work in relatedWorks" :key="work.id">
         <article class="border border-white w-100 h-[144px] work p-4 rounded-lg shadow-md">
           <router-link :to="getWorkLink(work.slug)">
             <h3 class="text-xl font-semibold mb-2">{{ t(work.title) }}</h3>
@@ -152,6 +152,10 @@ const getWorkLink = (slug: string) => {
     },
   }))
 }
+
+const relatedWorks = computed(() =>
+  works.value.filter((w: WorkItem) => String(w.slug) !== slug.value),
+)
 </script>
 
 <style lang="scss" scoped>
