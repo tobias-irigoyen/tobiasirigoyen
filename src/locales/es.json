@@ -8,6 +8,8 @@
   "technologies": "Tecnologías",
   "description": "Descripción del proyecto",
   "link": "Link",
+  "related-works": "Trabajos Relacionados",
+  "project-image": "Imagen del proyecto",
   "works": {
     "api-covid": {
       "title": "API Covid 19",

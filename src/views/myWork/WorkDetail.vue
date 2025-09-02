@@ -1,6 +1,6 @@
 <template>
   <section class="container pb-[100px]">
-    <h2 class="section-title text-center mt-4">{{ work ? t(work.title) : '' }}</h2>
+    <h2 class="section-title text-center mt-8">{{ work ? t(work.title) : '' }}</h2>
 
     <div class="slider-container mb-6" v-if="work?.images && work.images.length > 0">
       <swiper
@@ -11,12 +11,11 @@
         navigation
         :slides-per-view="1"
         :space-between="30"
-        class="mySwiper"
       >
         <swiper-slide v-for="(image, index) in work?.images" :key="index">
           <img
             :src="image"
-            :alt="'Screenshot ' + (index + 1)"
+            :alt="t('project-image') + ' ' + (index + 1)"
             class="w-full h-auto rounded-lg shadow-lg cursor-pointer"
             @click="openLightbox(index)"
           />
@@ -36,7 +35,11 @@
         class="lightboxSwiper w-[80vw] max-h-[90vh]"
       >
         <swiper-slide v-for="(image, index) in work?.images" :key="'light-' + index">
-          <img :src="image" class="max-h-[90vh] w-auto rounded-lg shadow-lg" />
+          <img
+            :src="image"
+            class="max-h-[90vh] w-auto rounded-lg shadow-lg"
+            :alt="t('project-image') + ' ' + (index + 1)"
+          />
         </swiper-slide>
       </swiper>
 
@@ -56,6 +59,44 @@
     </ul>
     <h3 class="text-3xl mb-6">{{ t('link') }}</h3>
     <a :href="work?.link" class="hover:underline">{{ work?.link }}</a>
+    <h3 class="text-3xl mt-8 mb-6">{{ t('related-works') }}</h3>
+    <swiper
+      :modules="[Navigation]"
+      :space-between="32"
+      :loop="true"
+      navigation
+      :breakpoints="{
+        0: { slidesPerView: 1, spaceBetween: 16 },
+        640: { slidesPerView: 2, spaceBetween: 32 },
+        1024: { slidesPerView: 3, spaceBetween: 30 },
+        1440: { slidesPerView: 4, spaceBetween: 32 },
+      }"
+      class="relatedWorksSwiper"
+    >
+      <swiper-slide v-for="work in works" :key="work.id">
+        <article class="border border-white w-100 h-[144px] work p-4 rounded-lg shadow-md">
+          <router-link :to="getWorkLink(work.slug)">
+            <h3 class="text-xl font-semibold mb-2">{{ t(work.title) }}</h3>
+            <svg
+              class="ms-auto right-arrow"
+              width="48"
+              height="46"
+              viewBox="0 0 48 46"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.5833 10.3062L37.0833 22.8062L24.5833 35.3062M35.3472 22.8062H10"
+                stroke="white"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </router-link>
+        </article>
+      </swiper-slide>
+    </swiper>
   </section>
 </template>
 
@@ -64,13 +105,16 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import workData from '@/assets/works.json'
 import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
 import type { WorkItem } from '@/types/works'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation } from 'swiper/modules'
+import workDetail from '../../assets/work.json'
 
+const works = ref(workDetail)
 const { t } = useI18n()
 const route = useRoute()
 
@@ -97,6 +141,16 @@ function openLightbox(index: number) {
 
 function closeLightbox() {
   isLightboxOpen.value = false
+}
+const getWorkLink = (slug: string) => {
+  return computed(() => ({
+    name: 'workDetail',
+    params: {
+      lang: locale.value,
+      section: locale.value === 'en' ? 'projects' : 'proyectos',
+      slug,
+    },
+  }))
 }
 </script>
 
@@ -205,5 +259,24 @@ function closeLightbox() {
 .lightboxSwiper {
   width: 80vw;
   max-height: 90vh;
+}
+.right-arrow {
+  margin-top: auto !important;
+  position: absolute;
+  bottom: 1rem;
+  right: 0.5rem;
+}
+.relatedWorksSwiper {
+  padding: 0 30px;
+  article {
+    position: relative;
+    &:hover {
+      background-color: #fff;
+      * {
+        color: #000 !important;
+        stroke: #000;
+      }
+    }
+  }
 }
 </style>
