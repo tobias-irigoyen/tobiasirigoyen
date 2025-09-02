@@ -39,14 +39,14 @@ const { t, locale } = useI18n()
 const works = ref(work)
 
 const getWorkLink = (slug: string) => {
-  return computed(() => ({
+  return {
     name: 'workDetail',
     params: {
       lang: locale.value,
       section: locale.value === 'en' ? 'projects' : 'proyectos',
       slug,
     },
-  }))
+  }
 }
 </script>
 

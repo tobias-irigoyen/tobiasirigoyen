@@ -6,10 +6,18 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import './main.scss'
 import messages from './locales/index.ts'
 
+function getDefaultLocale(): 'en' | 'es' {
+  const pathLang = router.currentRoute.value.params.lang as string
+  if (['en', 'es'].includes(pathLang)) return pathLang as 'en' | 'es'
+
+  const navLang = navigator.language.split('-')[0]
+  return ['en', 'es'].includes(navLang) ? (navLang as 'en' | 'es') : 'es'
+}
+
 const i18n = createI18n({
   legacy: false,
-  locale: 'es',
-  fallbackLocale: 'en',
+  locale: 'en',
+  fallbackLocale: 'es',
   messages,
 })
 
@@ -21,10 +29,10 @@ app.use(i18n)
 router.beforeEach((to, from, next) => {
   const lang = to.params.lang as string
   if (!['en', 'es'].includes(lang)) {
-    return next('/es/')
+    return next('/' + i18n.global.locale.value + '/')
   }
-  i18n.global.locale.value = lang
-  return next()
+  i18n.global.locale.value = lang as 'en' | 'es'
+  next()
 })
 
 app.mount('#app')

@@ -1,6 +1,6 @@
 import WorkDetail from '@/views/myWork/workDetail.vue'
 import Home from '@/views/home/homeSection.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteLocationRaw } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,33 +49,39 @@ router.beforeEach((to, from, next) => {
   if (lang && section) {
     const correctSection = lang === 'en' ? 'projects' : 'proyectos'
     if (section !== correctSection) {
-      return next({
-        ...to,
+      const target: RouteLocationRaw = {
+        name: to.name as string, // reutilizamos el nombre de la ruta
         params: { ...to.params, section: correctSection },
+        query: to.query,
+        hash: to.hash,
         replace: true,
-      })
+      }
     }
   }
 
   if (lang && workSection) {
     const correctWorkSection = lang === 'en' ? 'work' : 'proyectos'
     if (workSection !== correctWorkSection) {
-      return next({
-        ...to,
+      const target: RouteLocationRaw = {
+        name: to.name as string,
         params: { ...to.params, workSection: correctWorkSection },
+        query: to.query,
+        hash: to.hash,
         replace: true,
-      })
+      }
     }
   }
 
   if (lang && contactSection) {
     const correctContactSection = lang === 'en' ? 'contact' : 'contacto'
     if (contactSection !== correctContactSection) {
-      return next({
-        ...to,
+      const target: RouteLocationRaw = {
+        name: to.name as string,
         params: { ...to.params, contactSection: correctContactSection },
+        query: to.query,
+        hash: to.hash,
         replace: true,
-      })
+      }
     }
   }
 

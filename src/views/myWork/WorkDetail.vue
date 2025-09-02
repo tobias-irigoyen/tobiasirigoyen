@@ -128,6 +128,8 @@ const worksArray: WorkItem[] = (
   Array.isArray(workData) && Array.isArray(workData[0]) ? workData.flat() : workData
 ) as WorkItem[]
 
+const relatedWorks = computed(() => worksArray.filter((w) => w.slug !== slug.value))
+
 const work = computed<WorkItem | undefined>(() =>
   worksArray.find((w) => String(w.slug) === slug.value),
 )
@@ -144,19 +146,15 @@ function closeLightbox() {
   isLightboxOpen.value = false
 }
 const getWorkLink = (slug: string) => {
-  return computed(() => ({
+  return {
     name: 'workDetail',
     params: {
       lang: locale.value,
       section: locale.value === 'en' ? 'projects' : 'proyectos',
       slug,
     },
-  }))
+  }
 }
-
-const relatedWorks = computed(() =>
-  works.value.filter((w: WorkItem) => String(w.slug) !== slug.value),
-)
 </script>
 
 <style lang="scss" scoped>
