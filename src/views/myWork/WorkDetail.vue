@@ -76,7 +76,7 @@
     >
       <swiper-slide v-for="work in relatedWorks" :key="work.id">
         <article class="border border-white w-100 h-[144px] work p-4 rounded-lg shadow-md">
-          <router-link :to="getWorkLink(work.slug)">
+          <router-link :to="getWorkLink(work.slug)" @click.prevent="reloadPage(work.slug)">
             <h3 class="related-project-title text-xl font-semibold mb-2">{{ t(work.title) }}</h3>
             <svg
               class="ms-auto right-arrow"
@@ -114,6 +114,7 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation } from 'swiper/modules'
 import workDetail from '../../assets/work.json'
+import router from '@/router'
 
 const works = ref(workDetail)
 const { t } = useI18n()
@@ -154,6 +155,10 @@ const getWorkLink = (slug: string) => {
       slug,
     },
   }
+}
+function reloadPage(slug: string) {
+  const url = router.resolve(getWorkLink(slug)).href
+  window.location.href = url
 }
 </script>
 
