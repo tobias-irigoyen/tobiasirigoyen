@@ -13508,24 +13508,24 @@ const Sc = [
     history: _h('/'),
     routes: [
       {
-        path: '/tobiasirigoyen',
+        path: '/',
         redirect: (e) => `/${navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en'}/`,
       },
-      { path: 'tobiasirigoyen/:lang(en|es)/', name: 'Home', component: xr },
+      { path: '/:lang(en|es)/', name: 'Home', component: xr },
       {
-        path: '/tobiasirigoyen/:lang(en|es)/:workSection(work|proyectos)',
+        path: '/:lang(en|es)/:workSection(work|proyectos)',
         name: 'Work',
         component: xr,
         meta: { section: 'work' },
       },
       {
-        path: 'tobiasirigoyen/:lang(en|es)/:contactSection(contact|contacto)',
+        path: '/:lang(en|es)/:contactSection(contact|contacto)',
         name: 'Contact',
         component: xr,
         meta: { section: 'contact' },
       },
       {
-        path: 'tobiasirigoyen/:lang(en|es)/:section(projects|proyectos)/:slug',
+        path: '/:lang(en|es)/:section(projects|proyectos)/:slug',
         name: 'workDetail',
         component: Gg,
         props: !0,
