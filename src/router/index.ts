@@ -1,4 +1,4 @@
-import WorkDetail from '@/views/myWork/workDetail.vue'
+import WorkDetail from '@/views/myWork/WorkDetail.vue'
 import Home from '@/views/home/homeSection.vue'
 import { createRouter, createWebHistory, type RouteLocationRaw } from 'vue-router'
 
