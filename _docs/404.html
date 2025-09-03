@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>404</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: #000;
+        font-family: 'Poppins', sans-serif;
+      }
+      #title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      #message {
+        font-size: 1rem;
+      }
+      * {
+        color: #fff;
+        text-align: center;
+      }
+      img {
+        height: 120px;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      header {
+        padding-top: 32px;
+        display: flex;
+        justify-content: flex-start;
+      }
+      @media all and (max-width: 576px) {
+        img {
+          height: 80px;
+        }
+        .container,
+        header {
+          max-width: calc(100% - 32px);
+          margin: auto;
+        }
+      }
+      @media all and (min-width: 576px) {
+        .container,
+        header {
+          max-width: 540px;
+          margin: auto;
+        }
+      }
+      @media all and (max-width: 768px) {
+        .logo {
+          height: 20px;
+        }
+      }
+      @media all and (min-width: 768px) {
+        .container,
+        header {
+          max-width: 720px;
+          margin: auto;
+        }
+        .logo {
+          height: 32px;
+        }
+      }
+      @media all and (min-width: 992px) {
+        .container,
+        header {
+          max-width: 960px;
+          margin: auto;
+        }
+      }
+      @media all and (min-width: 1200px) {
+        .container,
+        header {
+          max-width: 1140px;
+          margin: auto;
+        }
+      }
+      @media all and (min-width: 1400px) {
+        .container,
+        header {
+          max-width: 1320px;
+          margin: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="https://tobias-irigoyen.github.io/tobiasirigoyen/">
+        <img
+          class="logo"
+          src="https://tobias-irigoyen.github.io/tobiasirigoyen/assets/logo-DmCWwoUo.svg"
+          alt="logo"
+        />
+      </a>
+    </header>
+    <main class="container">
+      <img src="https://tobias-irigoyen.github.io/tobiasirigoyen/404.svg" alt="404" />
+      <h1 id="title"></h1>
+      <p id="message"></p>
+      <a id="link" href="https://tobias-irigoyen.github.io/tobiasirigoyen/"></a>
+    </main>
+    <script>
+      const lang = navigator.language.startsWith('es') ? 'es' : 'en'
+
+      const translations = {
+        es: {
+          title: 'Página no encontrada',
+          msg: 'Oops, la página que buscás no existe.',
+          link: 'Volver al sitio',
+        },
+        en: {
+          title: 'Page Not Found',
+          msg: 'Oops, the page you are looking for doesn’t exist.',
+          link: 'Back to the site',
+        },
+      }
+
+      document.title = translations[lang].title
+      document.getElementById('title').textContent = translations[lang].title
+      document.getElementById('message').textContent = translations[lang].msg
+      document.getElementById('link').textContent = translations[lang].link
+    </script>
+  </body>
+</html>
