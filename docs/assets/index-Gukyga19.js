@@ -6662,7 +6662,7 @@ if (__INTLIFY_PROD_DEVTOOLS__) {
   const e = on()
   ;((e.__INTLIFY__ = !0), Ad(e.__INTLIFY_DEVTOOLS_GLOBAL_HOOK__))
 }
-const Hp = '/assets/logo-DmCWwoUo.svg'
+const Hp = BASE_URL + '/assets/logo-DmCWwoUo.svg'
 /*!
  * vue-router v4.5.1
  * (c) 2025 Eduardo San Martin Morote
@@ -13505,7 +13505,7 @@ const Sc = [
     },
   }),
   Js = Uh({
-    history: _h('/'),
+    history: _h('/tobiasirigoyen/'),
     routes: [
       {
         path: '/',
