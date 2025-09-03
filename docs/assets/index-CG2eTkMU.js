@@ -13120,7 +13120,6 @@ const Sc = [
                                   {
                                     default: Ot(() => [
                                       K('h3', Wg, we(te(n)(P.title)), 1),
-                                      { to: d(g.slug), onClick: Fr((p) => h(g.slug), ['prevent']) },
                                       v[1] ||
                                         (v[1] = K(
                                           'svg',
@@ -13265,11 +13264,7 @@ const Sc = [
           name: 'workDetail',
           params: { lang: n.value, section: n.value === 'en' ? 'projects' : 'proyectos', slug: i },
         })
-      function h(m) {
-        const w = Js.resolve(d(m)).href
-        window.location.href = w
-      }
-      return (i, o, w) => {
+      return (i, o) => {
         const l = gi('router-link')
         return (
           be(),
