@@ -5,7 +5,7 @@
     <meta property="og:title" content="Tobías Irigoyen" />
     <meta name="description" content="UI/UX Designer and Front-End dev" />
     <meta property="og:image" content="https://tobias-irigoyen.github.io/tobiasirigoyen/og.png" />
-    <link rel="icon" href="/favicon-dark.svg" id="favicon" type="image/svg+xml" />
+    <link rel="icon" href="favicon-dark.svg" id="favicon" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="alternate"
@@ -71,9 +71,9 @@
         const darkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 
         if (darkScheme) {
-          favicon.setAttribute('href', '/favicon-dark.svg')
+          favicon.setAttribute('href', 'favicon-dark.svg')
         } else {
-          favicon.setAttribute('href', '/favicon-light.svg')
+          favicon.setAttribute('href', 'favicon-light.svg')
         }
       }
       updateFavicon()
