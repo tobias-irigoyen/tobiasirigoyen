@@ -13501,7 +13501,7 @@ const Sc = [
     },
   }),
   Ri = Uh({
-    history: _h('/'),
+    history: _h('/tobiasirigoyen/'),
     routes: [
       { path: '/:lang(en|es)/', name: 'Home', component: Tr },
       {

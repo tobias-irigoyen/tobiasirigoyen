@@ -4,11 +4,11 @@ import { createRouter, createWebHistory, type RouteLocationRaw } from 'vue-route
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  //history: createWebHistory('/tobiasirigoyen/'),
   routes: [
     {
       path: '/',
       redirect: (to) => {
-        // Detectar idioma del navegador
         const browserLang = navigator.language.toLowerCase()
         const lang = browserLang.startsWith('es') ? 'es' : 'en'
         return `/${lang}/`
