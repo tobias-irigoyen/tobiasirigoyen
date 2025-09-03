@@ -8329,3 +8329,7 @@ body {
     bottom: 1rem;
     right: 0.5rem;
 }
+
+.project-link + h3 {
+    margin-top: 100px;
+}
