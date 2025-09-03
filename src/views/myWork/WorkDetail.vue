@@ -78,7 +78,8 @@
     >
       <swiper-slide v-for="work in relatedWorks" :key="work.id">
         <article class="border border-white w-100 h-[144px] work p-4 rounded-lg shadow-md">
-          <router-link :to="getWorkLink(work.slug)" @click.prevent="reloadPage(work.slug)">
+          <!--router-link :to="getWorkLink(work.slug)" @click.prevent="reloadPage(work.slug)"-->
+          <router-link :to="getWorkLink(work.slug)">
             <h3 class="related-project-title text-xl font-semibold mb-2">{{ t(work.title) }}</h3>
             <svg
               class="ms-auto right-arrow"
