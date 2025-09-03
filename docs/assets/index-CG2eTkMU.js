@@ -13077,7 +13077,11 @@ const Sc = [
             K('h3', Bg, we(te(n)('link')), 1),
             K(
               'a',
-              { href: l.value?.link, class: 'project-link text-[20px] hover:underline' },
+              {
+                href: l.value?.link,
+                class: 'project-link text-[20px] hover:underline',
+                target: '_blank',
+              },
               we(l.value?.link),
               9,
               jg,

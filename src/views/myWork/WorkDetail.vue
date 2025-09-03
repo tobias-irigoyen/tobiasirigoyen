@@ -59,7 +59,9 @@
       <li class="text-[20px]" v-for="skill in work?.skills" :key="skill">{{ t(skill) }}</li>
     </ul>
     <h3 class="text-3xl mb-6">{{ t('link') }}</h3>
-    <a :href="work?.link" class="project-link text-[20px] hover:underline">{{ work?.link }}</a>
+    <a :href="work?.link" class="project-link text-[20px] hover:underline" target="_blank">{{
+      work?.link
+    }}</a>
     <h3 class="text-3xl mt-8 mb-8">{{ t('related-works') }}</h3>
     <swiper
       :modules="[Navigation]"
