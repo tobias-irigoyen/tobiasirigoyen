@@ -8117,7 +8117,7 @@ const zh = { class: 'flex items-center gap-2 language-selector' },
         },
         d = () => {
           const v = document.createElement('a')
-          ;((v.href = '/Tobías Irigoyen - Resume.pdf'),
+          ;((v.href = BASE_URL + '/Tobías Irigoyen - Resume.pdf'),
             (v.download = 'Tobías Irigoyen - Resume.pdf'),
             document.body.appendChild(v),
             v.click(),
