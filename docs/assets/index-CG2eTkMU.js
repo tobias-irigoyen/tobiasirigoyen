@@ -8234,7 +8234,7 @@ const zh = { class: 'flex items-center gap-2 language-selector' },
         },
         l = () => {
           const a = document.createElement('a')
-          ;((a.href = '/Tobías Irigoyen - Resume.pdf'),
+          ;((a.href = BASE_URL + '/Tobías Irigoyen - Resume.pdf'),
             (a.download = 'Tobías Irigoyen - Resume.pdf'),
             document.body.appendChild(a),
             a.click(),
@@ -13185,7 +13185,7 @@ const Sc = [
       ls()
       const r = () => {
           const a = document.createElement('a')
-          ;((a.href = '/Tobías Irigoyen - Resume.pdf'),
+          ;((a.href = BASE_URL + '/Tobías Irigoyen - Resume.pdf'),
             (a.download = 'Tobías Irigoyen - Resume.pdf'),
             document.body.appendChild(a),
             a.click(),
