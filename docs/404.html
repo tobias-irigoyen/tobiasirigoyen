@@ -41,9 +41,6 @@
         display: flex;
         justify-content: flex-start;
       }
-      .logo {
-        height: 20px;
-      }
       @media all and (max-width: 576px) {
         img {
           height: 80px;
@@ -61,11 +58,19 @@
           margin: auto;
         }
       }
+      @media all and (max-width: 768px) {
+        .logo {
+          height: 20px;
+        }
+      }
       @media all and (min-width: 768px) {
         .container,
         header {
           max-width: 720px;
           margin: auto;
+        }
+        .logo {
+          height: 32px;
         }
       }
       @media all and (min-width: 992px) {
