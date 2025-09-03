@@ -13568,7 +13568,7 @@ const mv = 'Soy Diseñador UI/UX y Desarrollador Front-End',
     },
     fit: {
       title: 'FIT - Flujo Intercooperativo de Trabajo',
-      description: `El proyecto del FIT consistió en el diseño y desarrollo en Vue.js del sitio institucional del FIT - Flujo Intercooperativo de Trabajo. Este espacio es una red intercooperativa conformada por empresas tecnológicas pertenecientes a la Federación Argentina de Cooperativas de Trabajo de Tecnología, Innovación y Conocimiento. 
+      description: `El proyecto del FIT consistió en el diseño y desarrollo en Vue.js del sitio institucional del FIT - Flujo Intercooperativo de Trabajo junto a la empresa cooperativa Eryx. Este espacio es una red intercooperativa conformada por empresas tecnológicas pertenecientes a la Federación Argentina de Cooperativas de Trabajo de Tecnología, Innovación y Conocimiento. 
  El sitio posee un diseño y maquetado responsive y muestra la descripción y funcionamiento del espacio, las tecnologías utilizadas, casos de éxito y un formulario de contacto.`,
     },
     aurora: {
@@ -13645,7 +13645,7 @@ const mv = 'Soy Diseñador UI/UX y Desarrollador Front-End',
     },
     fit: {
       title: 'FIT - Flujo Intercooperativo de Trabajo',
-      description: `The FIT project involved the design and development in Vue.js of the institutional website for FIT – Flujo Intercooperativo de Trabajo. This platform is an intercooperative network composed of technology companies belonging to the Argentine Federation of Technology, Innovation, and Knowledge Worker Cooperatives. 
+      description: `The FIT project involved the design and development in Vue.js of the institutional website for FIT – Flujo Intercooperativo de Trabajo – together with the co-op company Eryx. This platform is an intercooperative network composed of technology companies belonging to the Argentine Federation of Technology, Innovation, and Knowledge Worker Cooperatives. 
  The site features a responsive design and layout, and it presents the description and operation of the platform, the technologies used, success stories, and a contact form.`,
     },
     aurora: {
