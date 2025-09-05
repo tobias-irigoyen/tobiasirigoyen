@@ -12927,7 +12927,7 @@ const Ec = [
       skills: ['skills.uiux-refactor', 'skills.figma'],
     },
   ],
-  Lg = { class: 'container pb-[100px]' },
+  Lg = { class: 'container pb-[100px]', id: 'work-detail' },
   Og = { class: 'section-title text-center mt-8' },
   Mg = { key: 0, class: 'slider-container mb-6' },
   Ag = ['src', 'alt', 'onClick'],

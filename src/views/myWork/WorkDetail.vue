@@ -1,5 +1,5 @@
 <template>
-  <section class="container pb-[100px]">
+  <section class="container pb-[100px]" id="work-detail">
     <h2 class="section-title text-center mt-8">{{ work ? t(work.title) : '' }}</h2>
 
     <div class="slider-container mb-6" v-if="work?.images && work.images.length > 0">
